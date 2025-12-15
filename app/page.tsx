@@ -3,6 +3,7 @@ import Link from "next/link";
 import { FaCalendarAlt, FaTools, FaArrowRight } from "react-icons/fa";
 import WaveDivider from "@/components/WaveDivider";
 import CountUp from "@/components/CountUp";
+import ScrollAnimation from "@/components/ScrollAnimations";
 
 export default function Home() {
   return (
@@ -90,15 +91,17 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <div key={index} className="card glass hover-lift animate-slide-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="text-4xl mb-4 float">{service.icon}</div>
-                <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-                <p className="text-gray-600 mb-4">{service.description}</p>
-                <Link href="/services" className="text-gradient font-semibold inline-flex items-center gap-1 hover:translate-x-1 transition-transform">
-                  Learn more
-                  <FaArrowRight className="w-3 h-3" />
-                </Link>
-              </div>
+              <ScrollAnimation key={index} animation="fade-up" delay={index * 100}>
+                <div className="card glass card-hover-glow">
+                  <div className="text-4xl mb-4 float">{service.icon}</div>
+                  <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+                  <p className="text-gray-600 mb-4">{service.description}</p>
+                  <Link href="/services" className="text-gradient font-semibold inline-flex items-center gap-1 hover:translate-x-1 transition-transform">
+                    Learn more
+                    <FaArrowRight className="w-3 h-3" />
+                  </Link>
+                </div>
+              </ScrollAnimation>
             ))}
           </div>
         </div>
@@ -116,15 +119,17 @@ export default function Home() {
               <h2 className="heading-lg mb-6">Why Choose <span className="text-gradient">Vastu Inside?</span></h2>
               <div className="space-y-6">
                 {benefits.map((benefit, index) => (
-                  <div key={index} className="flex gap-4 glass p-4 rounded-xl hover-lift" style={{ animationDelay: `${index * 0.1}s` }}>
-                    <div className="flex-shrink-0 w-12 h-12 gradient-primary rounded-lg flex items-center justify-center text-2xl text-white shadow-lg">
-                      {benefit.icon}
+                  <ScrollAnimation key={index} animation="fade-right" delay={index * 100}>
+                    <div className="flex gap-4 glass p-4 rounded-xl card-hover-glow">
+                      <div className="flex-shrink-0 w-12 h-12 gradient-primary rounded-full flex items-center justify-center text-2xl text-white shadow-lg">
+                        {benefit.icon}
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-lg mb-2">{benefit.title}</h3>
+                        <p className="text-gray-600">{benefit.description}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="font-bold text-lg mb-2">{benefit.title}</h3>
-                      <p className="text-gray-600">{benefit.description}</p>
-                    </div>
-                  </div>
+                  </ScrollAnimation>
                 ))}
               </div>
             </div>
@@ -163,27 +168,29 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="card glass hover-lift animate-slide-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="flex items-center mb-4">
-                  <Image
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    width={48}
-                    height={48}
-                    className="w-12 h-12 rounded-full mr-4 object-cover ring-2 ring-primary-200"
-                  />
-                  <div>
-                    <div className="font-semibold">{testimonial.name}</div>
-                    <div className="text-sm text-gray-500">{testimonial.role}</div>
+              <ScrollAnimation key={index} animation="scale" delay={index * 150}>
+                <div className="card glass card-hover-3d">
+                  <div className="flex items-center mb-4">
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      width={48}
+                      height={48}
+                      className="w-12 h-12 rounded-full mr-4 object-cover ring-2 ring-primary-200"
+                    />
+                    <div>
+                      <div className="font-semibold">{testimonial.name}</div>
+                      <div className="text-sm text-gray-500">{testimonial.role}</div>
+                    </div>
                   </div>
+                  <div className="flex items-center mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <span key={i} className="text-yellow-400 text-xl">★</span>
+                    ))}
+                  </div>
+                  <p className="text-gray-600 mb-4 italic">"{testimonial.text}"</p>
                 </div>
-                <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-yellow-400 text-xl">★</span>
-                  ))}
-                </div>
-                <p className="text-gray-600 mb-4 italic">"{testimonial.text}"</p>
-              </div>
+              </ScrollAnimation>
             ))}
           </div>
         </div>

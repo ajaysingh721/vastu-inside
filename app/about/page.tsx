@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FaCalendarAlt } from "react-icons/fa";
 import WaveDivider from "@/components/WaveDivider";
+import ScrollAnimation from "@/components/ScrollAnimations";
+import CountUp from "@/components/CountUp";
 
 export const metadata: Metadata = {
   title: "About Us - Vastu Inside",
@@ -116,21 +118,23 @@ export default function AboutPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {team.map((member, index) => (
-              <div key={index} className="card text-center">
-                <div className="w-32 h-32 bg-gradient-to-br from-primary-100 to-secondary-100 rounded-full mx-auto mb-4 flex items-center justify-center text-6xl">
-                  {member.avatar}
+              <ScrollAnimation key={index} animation="scale" delay={index * 150}>
+                <div className="card text-center card-hover-3d">
+                  <div className="w-32 h-32 bg-gradient-to-br from-primary-100 to-secondary-100 rounded-full mx-auto mb-4 flex items-center justify-center text-6xl">
+                    {member.avatar}
+                  </div>
+                  <h3 className="text-xl font-bold mb-1">{member.name}</h3>
+                  <p className="text-primary-500 font-semibold mb-3">{member.role}</p>
+                  <p className="text-gray-600 text-sm mb-4">{member.bio}</p>
+                  <div className="flex flex-wrap justify-center gap-2">
+                    {member.certifications.map((cert, idx) => (
+                      <span key={idx} className="text-xs bg-gray-100 px-3 py-1 rounded-full">
+                        {cert}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                <p className="text-primary-500 font-semibold mb-3">{member.role}</p>
-                <p className="text-gray-600 text-sm mb-4">{member.bio}</p>
-                <div className="flex flex-wrap justify-center gap-2">
-                  {member.certifications.map((cert, idx) => (
-                    <span key={idx} className="text-xs bg-gray-100 px-3 py-1 rounded-full">
-                      {cert}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              </ScrollAnimation>
             ))}
           </div>
         </div>
@@ -141,10 +145,14 @@ export default function AboutPage() {
         <div className="container-custom">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             {stats.map((stat, index) => (
-              <div key={index}>
-                <div className="text-5xl font-bold mb-2">{stat.value}</div>
-                <div className="text-xl text-white/90">{stat.label}</div>
-              </div>
+              <ScrollAnimation key={index} animation="fade-up" delay={index * 100}>
+                <div>
+                  <div className="text-5xl font-bold mb-2">
+                    <CountUp end={parseInt(stat.value.replace(/[^0-9]/g, ''))} suffix={stat.value.replace(/[0-9]/g, '')} />
+                  </div>
+                  <div className="text-xl text-white/90">{stat.label}</div>
+                </div>
+              </ScrollAnimation>
             ))}
           </div>
         </div>
@@ -161,15 +169,17 @@ export default function AboutPage() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {process.map((step, index) => (
-              <div key={index} className="relative">
-                <div className="card">
-                  <div className="absolute -top-4 -left-4 w-12 h-12 bg-primary-500 text-white rounded-full flex items-center justify-center font-bold text-xl">
-                    {index + 1}
+              <ScrollAnimation key={index} animation="fade-up" delay={index * 100}>
+                <div className="relative">
+                  <div className="card card-hover-glow">
+                    <div className="absolute -top-4 -left-4 w-12 h-12 bg-primary-500 text-white rounded-full flex items-center justify-center font-bold text-xl">
+                      {index + 1}
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 mt-4">{step.title}</h3>
+                    <p className="text-gray-600">{step.description}</p>
                   </div>
-                  <h3 className="text-xl font-bold mb-3 mt-4">{step.title}</h3>
-                  <p className="text-gray-600">{step.description}</p>
                 </div>
-              </div>
+              </ScrollAnimation>
             ))}
           </div>
         </div>

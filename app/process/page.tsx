@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FaCalendarAlt } from "react-icons/fa";
 import WaveDivider from "@/components/WaveDivider";
+import ScrollAnimation from "@/components/ScrollAnimations";
 
 export const metadata: Metadata = {
   title: "Our Process - Vastu Inside",
@@ -39,48 +40,56 @@ export default function ProcessPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Step 1 */}
-            <div className="card glass hover-lift animate-slide-in text-center" style={{ animationDelay: '0.1s' }}>
-              <div className="w-16 h-16 gradient-primary rounded-full flex items-center justify-center text-2xl font-bold text-white mx-auto mb-6 shadow-lg">
-                1
+            <ScrollAnimation animation="fade-up" delay={100}>
+              <div className="card glass card-hover-glow text-center">
+                <div className="w-16 h-16 gradient-primary rounded-full flex items-center justify-center text-2xl font-bold text-white mx-auto mb-6 shadow-lg">
+                  1
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-gradient">Book Appointment</h3>
+                <p className="text-gray-600">
+                  Schedule a free initial consultation with our experts to discuss your needs and requirements.
+                </p>
               </div>
-              <h3 className="text-xl font-bold mb-4 text-gradient">Book Appointment</h3>
-              <p className="text-gray-600">
-                Schedule a free initial consultation with our experts to discuss your needs and requirements.
-              </p>
-            </div>
+            </ScrollAnimation>
 
             {/* Step 2 */}
-            <div className="card glass hover-lift animate-slide-in text-center" style={{ animationDelay: '0.2s' }}>
-              <div className="w-16 h-16 gradient-primary rounded-full flex items-center justify-center text-2xl font-bold text-white mx-auto mb-6 shadow-lg">
-                2
+            <ScrollAnimation animation="fade-up" delay={200}>
+              <div className="card glass card-hover-glow text-center">
+                <div className="w-16 h-16 gradient-primary rounded-full flex items-center justify-center text-2xl font-bold text-white mx-auto mb-6 shadow-lg">
+                  2
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-gradient">Site Analysis</h3>
+                <p className="text-gray-600">
+                  We analyze your property's floor plan, directions, and energy flow to identify Vastu principles.
+                </p>
               </div>
-              <h3 className="text-xl font-bold mb-4 text-gradient">Site Analysis</h3>
-              <p className="text-gray-600">
-                We analyze your property's floor plan, directions, and energy flow to identify Vastu principles.
-              </p>
-            </div>
+            </ScrollAnimation>
 
             {/* Step 3 */}
-            <div className="card glass hover-lift animate-slide-in text-center" style={{ animationDelay: '0.3s' }}>
-              <div className="w-16 h-16 gradient-primary rounded-full flex items-center justify-center text-2xl font-bold text-white mx-auto mb-6 shadow-lg">
-                3
+            <ScrollAnimation animation="fade-up" delay={300}>
+              <div className="card glass card-hover-glow text-center">
+                <div className="w-16 h-16 gradient-primary rounded-full flex items-center justify-center text-2xl font-bold text-white mx-auto mb-6 shadow-lg">
+                  3
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-gradient">Get Report</h3>
+                <p className="text-gray-600">
+                  Receive a detailed Vastu report with practical remedies and implementation recommendations.
+                </p>
               </div>
-              <h3 className="text-xl font-bold mb-4 text-gradient">Get Report</h3>
-              <p className="text-gray-600">
-                Receive a detailed Vastu report with practical remedies and implementation recommendations.
-              </p>
-            </div>
+            </ScrollAnimation>
 
             {/* Step 4 */}
-            <div className="card glass hover-lift animate-slide-in text-center" style={{ animationDelay: '0.4s' }}>
-              <div className="w-16 h-16 gradient-primary rounded-full flex items-center justify-center text-2xl font-bold text-white mx-auto mb-6 shadow-lg">
-                4
+            <ScrollAnimation animation="fade-up" delay={400}>
+              <div className="card glass card-hover-glow text-center">
+                <div className="w-16 h-16 gradient-primary rounded-full flex items-center justify-center text-2xl font-bold text-white mx-auto mb-6 shadow-lg">
+                  4
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-gradient">Implementation</h3>
+                <p className="text-gray-600">
+                  We guide you through implementing the changes with ongoing support and follow-up consultations.
+                </p>
               </div>
-              <h3 className="text-xl font-bold mb-4 text-gradient">Implementation</h3>
-              <p className="text-gray-600">
-                We guide you through implementing the changes with ongoing support and follow-up consultations.
-              </p>
-            </div>
+            </ScrollAnimation>
           </div>
         </div>
       </section>
@@ -94,33 +103,39 @@ export default function ProcessPage() {
             <div className="animate-fade-in">
               <h2 className="heading-lg mb-6">Why Our <span className="text-gradient">Process Works</span></h2>
               <div className="space-y-6">
-                <div className="flex gap-4 glass p-4 rounded-xl hover-lift">
-                  <div className="flex-shrink-0 w-12 h-12 gradient-primary rounded-lg flex items-center justify-center text-2xl text-white shadow-lg">
-                    ✓
+                <ScrollAnimation animation="fade-right" delay={100}>
+                  <div className="flex gap-4 glass p-4 rounded-xl card-hover-glow">
+                    <div className="flex-shrink-0 w-12 h-12 gradient-primary rounded-lg flex items-center justify-center text-2xl text-white shadow-lg">
+                      ✓
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg mb-2">Personalized Approach</h3>
+                      <p className="text-gray-600">Every consultation is tailored to your specific space and lifestyle needs.</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-bold text-lg mb-2">Personalized Approach</h3>
-                    <p className="text-gray-600">Every consultation is tailored to your specific space and lifestyle needs.</p>
+                </ScrollAnimation>
+                <ScrollAnimation animation="fade-right" delay={200}>
+                  <div className="flex gap-4 glass p-4 rounded-xl card-hover-glow">
+                    <div className="flex-shrink-0 w-12 h-12 gradient-primary rounded-lg flex items-center justify-center text-2xl text-white shadow-lg">
+                      ✓
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg mb-2">Practical Solutions</h3>
+                      <p className="text-gray-600">We provide actionable remedies that work within your existing space constraints.</p>
+                    </div>
                   </div>
-                </div>
-                <div className="flex gap-4 glass p-4 rounded-xl hover-lift">
-                  <div className="flex-shrink-0 w-12 h-12 gradient-primary rounded-lg flex items-center justify-center text-2xl text-white shadow-lg">
-                    ✓
+                </ScrollAnimation>
+                <ScrollAnimation animation="fade-right" delay={300}>
+                  <div className="flex gap-4 glass p-4 rounded-xl card-hover-glow">
+                    <div className="flex-shrink-0 w-12 h-12 gradient-primary rounded-lg flex items-center justify-center text-2xl text-white shadow-lg">
+                      ✓
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg mb-2">Ongoing Support</h3>
+                      <p className="text-gray-600">Continuous guidance ensures successful implementation and lasting results.</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-bold text-lg mb-2">Practical Solutions</h3>
-                    <p className="text-gray-600">We provide actionable remedies that work within your existing space constraints.</p>
-                  </div>
-                </div>
-                <div className="flex gap-4 glass p-4 rounded-xl hover-lift">
-                  <div className="flex-shrink-0 w-12 h-12 gradient-primary rounded-lg flex items-center justify-center text-2xl text-white shadow-lg">
-                    ✓
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg mb-2">Ongoing Support</h3>
-                    <p className="text-gray-600">Continuous guidance ensures successful implementation and lasting results.</p>
-                  </div>
-                </div>
+                </ScrollAnimation>
               </div>
             </div>
             <div className="gradient-mesh rounded-3xl p-8 lg:p-12 animate-fade-in-delay">

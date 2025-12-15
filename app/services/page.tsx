@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FaRocket } from "react-icons/fa";
 import WaveDivider from "@/components/WaveDivider";
+import ScrollAnimation from "@/components/ScrollAnimations";
 
 export const metadata: Metadata = {
   title: "Services - Vastu Inside",
@@ -45,12 +46,14 @@ export default function ServicesPage() {
                   <p className="text-body mb-6">{service.description}</p>
                   <div className="space-y-3 mb-6">
                     {service.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-start gap-3 glass p-3 rounded-lg hover-lift">
-                        <svg className="w-6 h-6 text-primary-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span className="text-gray-700">{feature}</span>
-                      </div>
+                      <ScrollAnimation key={idx} animation="fade-left" delay={idx * 50}>
+                        <div className="flex items-start gap-3 glass p-3 rounded-lg card-hover-glow">
+                          <svg className="w-6 h-6 text-primary-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                          <span className="text-gray-700">{feature}</span>
+                        </div>
+                      </ScrollAnimation>
                     ))}
                   </div>
                   <Link href="/contact" className="btn-primary shimmer pulse-glow inline-flex items-center gap-2">
