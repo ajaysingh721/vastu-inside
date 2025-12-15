@@ -4,10 +4,44 @@ import { FaCalendarAlt, FaTools, FaArrowRight } from "react-icons/fa";
 import WaveDivider from "@/components/WaveDivider";
 import CountUp from "@/components/CountUp";
 import ScrollAnimation from "@/components/ScrollAnimations";
+import ImageCarousel from "@/components/ImageCarousel";
 
 export default function Home() {
   return (
     <div className="bg-white overflow-hidden">
+      {/* Welcome Section */}
+      <section className="relative bg-gradient-to-br from-primary-50 via-white to-secondary-50 py-12 md:py-16">
+        <div className="container-custom px-4">
+          <ScrollAnimation animation="fade-in">
+            <div className="flex flex-col items-center text-center space-y-6">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-400 to-secondary-400 rounded-full blur-2xl opacity-20 animate-pulse"></div>
+                <div className="relative w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full overflow-hidden border-4 border-white shadow-2xl hover:scale-105 transition-transform duration-300">
+                  <Image
+                    src="/images/acharya-vikash-kumar.jpg"
+                    alt="Acharya Vikash Kumar - Vastu Expert"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </div>
+              <div className="space-y-2">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">
+                  Welcome to the Official Page of
+                </h2>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gradient font-serif">
+                  Acharya Vikash Kumar
+                </h1>
+                <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mt-4">
+                  Expert Vastu Consultant | Transforming Spaces, Enriching Lives
+                </p>
+              </div>
+            </div>
+          </ScrollAnimation>
+        </div>
+      </section>
+
       {/* Hero Section */}
       <section className="relative particles gradient-mesh py-12 md:py-16 lg:py-20 min-h-[auto] md:min-h-[80vh] flex items-center">
         {/* Floating decorative elements */}
@@ -59,18 +93,35 @@ export default function Home() {
             <div className="relative h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] w-full animate-fade-in-delay mt-8 lg:mt-0">
               <div className="absolute inset-0 gradient-primary rounded-2xl md:rounded-3xl transform rotate-3 float opacity-20 hidden sm:block"></div>
               <div className="relative w-full h-full glass rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden hover-lift">
-                <Image
-                  src="/images/hero-home.jpg"
-                  alt="Vastu Consultation - Harmonious living space design"
-                  fill
-                  className="object-cover"
-                  priority
+                <ImageCarousel 
+                  images={[
+                    {
+                      src: "/images/hero-home.jpg",
+                      alt: "Vastu Consultation - Harmonious living space",
+                      title: "Vastu Consultation",
+                      description: "Creating harmonious living spaces"
+                    },
+                    {
+                      src: "/images/carousel/vastu-home.jpg",
+                      alt: "Residential Vastu Services",
+                      title: "Residential Vastu",
+                      description: "Harmonize your home with ancient wisdom"
+                    },
+                    {
+                      src: "/images/carousel/vastu-office.jpg",
+                      alt: "Commercial Vastu Solutions",
+                      title: "Commercial Vastu",
+                      description: "Enhance prosperity in your workspace"
+                    },
+                    {
+                      src: "/images/carousel/vastu-peace.jpg",
+                      alt: "Vastu for Well-being",
+                      title: "Peace & Prosperity",
+                      description: "Balance energy for health and success"
+                    }
+                  ]}
+                  autoPlayInterval={5000}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 text-center p-4 sm:p-6 md:p-8 text-white">
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 md:mb-2">Vastu Consultation</h3>
-                  <p className="text-sm sm:text-base text-white/90">Creating harmonious living spaces</p>
-                </div>
               </div>
             </div>
           </div>

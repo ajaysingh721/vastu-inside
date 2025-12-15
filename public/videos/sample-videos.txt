@@ -1,0 +1,37 @@
+# Sample Videos for Vastu Website
+
+To add videos to your website, you need to:
+
+## Option 1: Use Your Own Videos
+1. Record or obtain MP4 videos (15-30 seconds each)
+2. Name them: vastu-1.mp4, vastu-2.mp4, vastu-3.mp4
+3. Place them in this /public/videos/ folder
+4. Update the page.tsx to use VideoCarousel component
+
+## Option 2: Download Free Stock Videos
+You can download free Vastu/architecture/home videos from:
+- **Pexels**: https://www.pexels.com/videos/
+- **Pixabay**: https://pixabay.com/videos/
+- **Videvo**: https://www.videvo.net/
+
+Search terms to use:
+- "architecture"
+- "house interior"
+- "home design"
+- "spiritual home"
+- "meditation space"
+
+## Option 3: Use YouTube Videos (Embedded)
+Instead of video files, you can embed YouTube videos directly. Contact support if you need help implementing this.
+
+## Video Specifications:
+- Format: MP4 (H.264 codec)
+- Resolution: 1920x1080 or 1280x720
+- Aspect Ratio: 16:9
+- File Size: Under 5MB per video
+- Duration: 15-30 seconds recommended
+
+## To Enable Video Carousel:
+Once you have videos in this folder, uncomment the VideoCarousel component in app/page.tsx and replace the Image component.
+
+Current Status: Using fallback image until videos are added.

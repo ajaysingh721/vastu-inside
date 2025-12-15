@@ -7,7 +7,30 @@ import { HiUserGroup } from "react-icons/hi";
 export default function FloatingSocialMedia() {
   const [isExpanded, setIsExpanded] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Auto-collapse after 10 seconds
+  useEffect(() => {
+    if (isExpanded) {
+      // Clear any existing timer
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
+
+      // Set new timer to auto-collapse after 10 seconds
+      timerRef.current = setTimeout(() => {
+        setIsExpanded(false);
+      }, 10000);
+    }
+
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
+    };
+  }, [isExpanded]);
+
+  // Click outside to collapse
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
@@ -24,72 +47,102 @@ export default function FloatingSocialMedia() {
     };
   }, [isExpanded]);
 
+  // Reset timer on any interaction
+  const handleInteraction = () => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+    }
+    timerRef.current = setTimeout(() => {
+      setIsExpanded(false);
+    }, 10000);
+  };
+
   return (
     <div className="fixed bottom-8 right-8 z-40" ref={containerRef}>
-      <div className={`flex flex-row-reverse items-center gap-2 bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-2xl border-2 border-primary-500 transition-all duration-300`}>
+      <div 
+        className="flex flex-row-reverse items-center gap-2 bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-2xl border-2 border-primary-500 transition-all duration-500 ease-in-out"
+        onMouseEnter={handleInteraction}
+        onMouseMove={handleInteraction}
+      >
         <button
           onClick={() => setIsExpanded(!isExpanded)}
           className="group relative w-12 h-12 rounded-full bg-primary-500 hover:bg-primary-600 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl"
           aria-label={isExpanded ? "Collapse social media" : "Expand social media"}
         >
-          <HiUserGroup className={`w-6 h-6 transition-transform duration-300 ${isExpanded ? 'scale-110' : ''}`} />
+          <HiUserGroup className={`w-6 h-6 transition-all duration-500 ${isExpanded ? 'scale-110 rotate-12' : 'rotate-0'}`} />
         </button>
         
-        {isExpanded && (
-          <>
-            <a 
-              href="https://wa.me/917858992627" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative w-10 h-10 rounded-full bg-green-500 hover:bg-green-600 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl animate-[slideIn_0.3s_ease-out]"
-              aria-label="WhatsApp"
-            >
-              <FaWhatsapp className="w-4 h-4" />
-              <span className="absolute bottom-full mb-2 px-3 py-1 bg-green-500 text-white text-sm font-medium rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap">
-                WhatsApp
-              </span>
-            </a>
+        <div className={`flex flex-row-reverse items-center gap-2 overflow-hidden transition-all duration-500 ease-in-out ${
+          isExpanded ? 'max-w-[200px] opacity-100' : 'max-w-0 opacity-0'
+        }`}>
+          <a 
+            href="https://wa.me/917858992627" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`group relative w-10 h-10 rounded-full bg-green-500 hover:bg-green-600 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl ${
+              isExpanded ? 'scale-100 translate-x-0' : 'scale-0 translate-x-4'
+            }`}
+            style={{ transitionDelay: '100ms' }}
+            aria-label="WhatsApp"
+            onClick={handleInteraction}
+          >
+            <FaWhatsapp className="w-4 h-4" />
+            <span className="absolute bottom-full mb-2 px-3 py-1 bg-green-500 text-white text-sm font-medium rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap">
+              WhatsApp
+            </span>
+          </a>
 
-            <a 
-              href="https://www.youtube.com/@Acharayavikashkumar" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative w-10 h-10 rounded-full bg-red-600 hover:bg-red-700 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl animate-[slideIn_0.3s_ease-out_0.05s_backwards]"
-              aria-label="YouTube"
-            >
-              <FaYoutube className="w-4 h-4" />
-              <span className="absolute bottom-full mb-2 px-3 py-1 bg-red-600 text-white text-sm font-medium rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap">
-                YouTube
-              </span>
-            </a>
-            
-            <a 
-              href="https://www.instagram.com/acharaya.vikash_27/" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative w-10 h-10 rounded-full bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 hover:from-purple-700 hover:via-pink-700 hover:to-orange-600 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl animate-[slideIn_0.3s_ease-out_0.15s_backwards]"
-              aria-label="Instagram"
-            >
-              <FaInstagram className="w-4 h-4" />
-              <span className="absolute bottom-full mb-2 px-3 py-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-medium rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap">
-                Instagram
-              </span>
-            </a>
+          <a 
+            href="https://www.youtube.com/@Acharayavikashkumar" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`group relative w-10 h-10 rounded-full bg-red-600 hover:bg-red-700 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl ${
+              isExpanded ? 'scale-100 translate-x-0' : 'scale-0 translate-x-4'
+            }`}
+            style={{ transitionDelay: '150ms' }}
+            aria-label="YouTube"
+            onClick={handleInteraction}
+          >
+            <FaYoutube className="w-4 h-4" />
+            <span className="absolute bottom-full mb-2 px-3 py-1 bg-red-600 text-white text-sm font-medium rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap">
+              YouTube
+            </span>
+          </a>
+          
+          <a 
+            href="https://www.instagram.com/acharaya.vikash_27/" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`group relative w-10 h-10 rounded-full bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 hover:from-purple-700 hover:via-pink-700 hover:to-orange-600 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl ${
+              isExpanded ? 'scale-100 translate-x-0' : 'scale-0 translate-x-4'
+            }`}
+            style={{ transitionDelay: '200ms' }}
+            aria-label="Instagram"
+            onClick={handleInteraction}
+          >
+            <FaInstagram className="w-4 h-4" />
+            <span className="absolute bottom-full mb-2 px-3 py-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-medium rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap">
+              Instagram
+            </span>
+          </a>
 
-            <a 
-              href="https://www.facebook.com/profile.php?id=61581478106818" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl animate-[slideIn_0.3s_ease-out_0.25s_backwards]"
-              aria-label="Facebook"
-            >
-              <FaFacebookF className="w-4 h-4" />
-              <span className="absolute bottom-full mb-2 px-3 py-1 bg-blue-600 text-white text-sm font-medium rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap">
-                Facebook
-              </span>
-            </a>
-          </>
-        )}
+          <a 
+            href="https://www.facebook.com/profile.php?id=61581478106818" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`group relative w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl ${
+              isExpanded ? 'scale-100 translate-x-0' : 'scale-0 translate-x-4'
+            }`}
+            style={{ transitionDelay: '250ms' }}
+            aria-label="Facebook"
+            onClick={handleInteraction}
+          >
+            <FaFacebookF className="w-4 h-4" />
+            <span className="absolute bottom-full mb-2 px-3 py-1 bg-blue-600 text-white text-sm font-medium rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap">
+              Facebook
+            </span>
+          </a>
+        </div>
       </div>
     </div>
   );
