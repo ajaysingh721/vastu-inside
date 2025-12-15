@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import WaveDivider from "@/components/WaveDivider";
 
 export const metadata: Metadata = {
   title: "Services - Vastu Inside",
@@ -8,18 +9,24 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <div className="bg-white">
+    <div className="bg-white overflow-hidden">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-50 to-secondary-50 py-16 md:py-24">
-        <div className="container-custom text-center">
-          <h1 className="heading-xl mb-6">Our Services</h1>
-          <p className="text-body max-w-3xl mx-auto">
+      <section className="gradient-mesh section-padding particles relative min-h-[60vh] flex items-center">
+        <div className="absolute top-20 left-10 w-20 h-20 bg-primary-400/20 rounded-full blur-2xl float"></div>
+        <div className="absolute bottom-20 right-20 w-32 h-32 bg-secondary-400/20 rounded-full blur-3xl float-delayed"></div>
+        <div className="container-custom text-center relative z-10">
+          <h1 className="heading-xl mb-6 animate-fade-in">Our <span className="text-gradient">Services</span></h1>
+          <p className="text-body max-w-3xl mx-auto animate-fade-in-delay">
             Comprehensive Vastu consultation services tailored to your needs. 
             From residential spaces to large commercial projects, we provide expert guidance 
             to create harmonious and prosperous environments.
           </p>
         </div>
       </section>
+
+      <WaveDivider color="white" />
+
+      <WaveDivider color="white" />
 
       {/* Services Detail Section */}
       <section className="section-padding">
@@ -29,17 +36,15 @@ export default function ServicesPage() {
               <div 
                 key={index} 
                 id={service.id}
-                className={`grid lg:grid-cols-2 gap-12 items-center ${
-                  index % 2 === 1 ? 'lg:flex-row-reverse' : ''
-                }`}
+                className={`grid lg:grid-cols-2 gap-12 items-center animate-fade-in`}
               >
                 <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                  <div className="text-5xl mb-4">{service.icon}</div>
-                  <h2 className="heading-md mb-4">{service.title}</h2>
+                  <div className="text-5xl mb-4 float">{service.icon}</div>
+                  <h2 className="heading-md mb-4"><span className="text-gradient">{service.title}</span></h2>
                   <p className="text-body mb-6">{service.description}</p>
                   <div className="space-y-3 mb-6">
                     {service.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-start gap-3">
+                      <div key={idx} className="flex items-start gap-3 glass p-3 rounded-lg hover-lift">
                         <svg className="w-6 h-6 text-primary-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                         </svg>
@@ -47,16 +52,16 @@ export default function ServicesPage() {
                       </div>
                     ))}
                   </div>
-                  <Link href="/contact" className="btn-primary">
+                  <Link href="/contact" className="btn-primary shimmer pulse-glow">
                     Get Started
                   </Link>
                 </div>
-                <div className={`bg-gradient-to-br ${service.gradient} rounded-3xl p-8 lg:p-12 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                <div className={`gradient-mesh rounded-3xl p-8 lg:p-12 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                   <div className="space-y-4">
                     {service.highlights.map((highlight, idx) => (
-                      <div key={idx} className="bg-white rounded-xl p-6 shadow-lg">
-                        <h3 className="font-bold text-lg mb-2">{highlight.title}</h3>
-                        <p className="text-gray-600 text-sm">{highlight.description}</p>
+                      <div key={idx} className="glass rounded-xl p-6 shadow-lg hover-lift">
+                        <h3 className="font-bold text-lg mb-2 text-gradient">{highlight.title}</h3>
+                        <p className="text-gray-700 text-sm">{highlight.description}</p>
                       </div>
                     ))}
                   </div>
@@ -67,25 +72,27 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      <WaveDivider color="gray" flip />
+
       {/* Pricing Section */}
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="heading-lg mb-4">Service Packages</h2>
+          <div className="text-center mb-12 animate-fade-in">
+            <h2 className="heading-lg mb-4">Service <span className="text-gradient">Packages</span></h2>
             <p className="text-body max-w-2xl mx-auto">
               Choose the package that best fits your needs
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {packages.map((pkg, index) => (
-              <div key={index} className={`card ${pkg.featured ? 'ring-2 ring-primary-500 scale-105' : ''}`}>
+              <div key={index} className={`card glass hover-lift animate-slide-in ${pkg.featured ? 'ring-2 ring-primary-500 scale-105' : ''}`} style={{ animationDelay: `${index * 0.1}s` }}>
                 {pkg.featured && (
-                  <div className="bg-primary-500 text-white text-sm font-bold px-4 py-1 rounded-full inline-block mb-4">
+                  <div className="gradient-primary text-white text-sm font-bold px-4 py-1 rounded-full inline-block mb-4">
                     Most Popular
                   </div>
                 )}
                 <h3 className="text-2xl font-bold mb-2">{pkg.name}</h3>
-                <div className="text-4xl font-bold text-primary-500 mb-4">
+                <div className="text-4xl font-bold text-gradient mb-4">
                   ${pkg.price}
                 </div>
                 <p className="text-gray-600 mb-6">{pkg.description}</p>

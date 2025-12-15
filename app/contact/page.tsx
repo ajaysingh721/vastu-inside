@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { FormEvent } from "react";
+import WaveDivider from "@/components/WaveDivider";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -43,17 +44,21 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-white overflow-hidden">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-50 to-secondary-50 py-16 md:py-24">
-        <div className="container-custom text-center">
-          <h1 className="heading-xl mb-6">Get In Touch</h1>
-          <p className="text-body max-w-3xl mx-auto">
+      <section className="gradient-mesh section-padding particles relative min-h-[60vh] flex items-center">
+        <div className="absolute top-20 left-10 w-20 h-20 bg-primary-400/20 rounded-full blur-2xl float"></div>
+        <div className="absolute bottom-20 right-20 w-32 h-32 bg-secondary-400/20 rounded-full blur-3xl float-delayed"></div>
+        <div className="container-custom text-center relative z-10">
+          <h1 className="heading-xl mb-6 animate-fade-in"><span className="text-gradient">Get In Touch</span></h1>
+          <p className="text-body max-w-3xl mx-auto animate-fade-in-delay">
             Have questions about our services? Ready to schedule a consultation? 
             We're here to help you on your journey to a harmonious space.
           </p>
         </div>
       </section>
+
+      <WaveDivider color="white" />
 
       {/* Contact Form and Info Section */}
       <section className="section-padding">
@@ -61,8 +66,8 @@ export default function ContactPage() {
           <div className="grid lg:grid-cols-5 gap-12">
             {/* Contact Form */}
             <div className="lg:col-span-3">
-              <div className="card">
-                <h2 className="heading-md mb-6">Send Us a Message</h2>
+              <div className="card glass hover-lift animate-fade-in">
+                <h2 className="heading-md mb-6"><span className="text-gradient">Send Us a Message</span></h2>
                 
                 {submitMessage && (
                   <div className="mb-6 p-4 bg-secondary-50 border border-secondary-200 text-secondary-800 rounded-lg">
@@ -194,13 +199,13 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Information */}
-            <div className="lg:col-span-2 space-y-6">
-              <div className="card">
-                <h3 className="text-xl font-bold mb-4">Contact Information</h3>
+            <div className="lg:col-span-2 space-y-6 animate-fade-in-delay">
+              <div className="card glass hover-lift">
+                <h3 className="text-xl font-bold mb-4 text-gradient">Contact Information</h3>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <svg className="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="w-10 h-10 gradient-primary rounded-lg flex items-center justify-center flex-shrink-0">
+                      <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import WaveDivider from "@/components/WaveDivider";
 
 export const metadata: Metadata = {
   title: "About Us - Vastu Inside",
@@ -8,24 +9,28 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="bg-white">
+    <div className="bg-white overflow-hidden">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-50 to-secondary-50 py-16 md:py-24">
-        <div className="container-custom text-center">
-          <h1 className="heading-xl mb-6">About Vastu Inside</h1>
-          <p className="text-body max-w-3xl mx-auto">
+      <section className="gradient-mesh section-padding particles relative min-h-[60vh] flex items-center">
+        <div className="absolute top-20 left-10 w-20 h-20 bg-primary-400/20 rounded-full blur-2xl float"></div>
+        <div className="absolute bottom-20 right-20 w-32 h-32 bg-secondary-400/20 rounded-full blur-3xl float-delayed"></div>
+        <div className="container-custom text-center relative z-10">
+          <h1 className="heading-xl mb-6 animate-fade-in">About <span className="text-gradient">Vastu Inside</span></h1>
+          <p className="text-body max-w-3xl mx-auto animate-fade-in-delay">
             Bridging ancient Vastu wisdom with modern living to create harmonious, 
             prosperous, and energetically balanced spaces.
           </p>
         </div>
       </section>
 
+      <WaveDivider color="white" />
+
       {/* Our Story Section */}
       <section className="section-padding">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="heading-lg mb-6">Our Story</h2>
+            <div className="animate-fade-in">
+              <h2 className="heading-lg mb-6">Our <span className="text-gradient">Story</span></h2>
               <div className="space-y-4 text-body">
                 <p>
                   Founded with a vision to make authentic Vastu consultation accessible to everyone, 
@@ -44,28 +49,28 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-primary-100 to-secondary-100 rounded-3xl p-8 lg:p-12">
+            <div className="gradient-mesh rounded-3xl p-8 lg:p-12 animate-fade-in-delay">
               <div className="space-y-6">
-                <div className="bg-white rounded-xl p-6 shadow-lg">
-                  <div className="text-3xl mb-2">🎯</div>
-                  <h3 className="font-bold text-xl mb-2">Our Mission</h3>
-                  <p className="text-gray-600">
+                <div className="glass rounded-xl p-6 shadow-lg hover-lift">
+                  <div className="text-3xl mb-2 float">🎯</div>
+                  <h3 className="font-bold text-xl mb-2 text-gradient">Our Mission</h3>
+                  <p className="text-gray-700">
                     To empower individuals and businesses with Vastu knowledge that creates 
                     positive, prosperous, and harmonious environments.
                   </p>
                 </div>
-                <div className="bg-white rounded-xl p-6 shadow-lg">
-                  <div className="text-3xl mb-2">👁️</div>
-                  <h3 className="font-bold text-xl mb-2">Our Vision</h3>
-                  <p className="text-gray-600">
+                <div className="glass rounded-xl p-6 shadow-lg hover-lift">
+                  <div className="text-3xl mb-2 float-delayed">👁️</div>
+                  <h3 className="font-bold text-xl mb-2 text-gradient">Our Vision</h3>
+                  <p className="text-gray-700">
                     To be the most trusted Vastu consultation service, known for practical 
                     solutions and measurable results.
                   </p>
                 </div>
-                <div className="bg-white rounded-xl p-6 shadow-lg">
-                  <div className="text-3xl mb-2">💎</div>
-                  <h3 className="font-bold text-xl mb-2">Our Values</h3>
-                  <p className="text-gray-600">
+                <div className="glass rounded-xl p-6 shadow-lg hover-lift">
+                  <div className="text-3xl mb-2 float">💎</div>
+                  <h3 className="font-bold text-xl mb-2 text-gradient">Our Values</h3>
+                  <p className="text-gray-700">
                     Authenticity, practicality, respect for tradition, and commitment to 
                     client success guide everything we do.
                   </p>
@@ -76,19 +81,21 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <WaveDivider color="gray" flip />
+
       {/* Why Choose Us Section */}
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="heading-lg mb-4">Why Choose Vastu Inside?</h2>
+          <div className="text-center mb-12 animate-fade-in">
+            <h2 className="heading-lg mb-4">Why Choose <span className="text-gradient">Vastu Inside?</span></h2>
             <p className="text-body max-w-2xl mx-auto">
               What sets us apart in the field of Vastu consultation
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="card text-center">
-                <div className="text-5xl mb-4">{feature.icon}</div>
+              <div key={index} className="card glass text-center hover-lift animate-slide-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div className="text-5xl mb-4 float">{feature.icon}</div>
                 <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
                 <p className="text-gray-600">{feature.description}</p>
               </div>
