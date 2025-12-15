@@ -462,7 +462,6 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h4 className="font-semibold mb-1">Email</h4>
-                      <p className="text-gray-600 text-sm">info@vastuinside.com</p>
                       <p className="text-gray-600 text-sm">support@vastuinside.com</p>
                     </div>
                   </div>
@@ -675,7 +674,7 @@ const contactMethods = [
     icon: "📧",
     title: "Email",
     description: "Detailed inquiries and document sharing",
-    link: "mailto:info@vastuinside.com",
+    link: "mailto:support@vastuinside.com",
     action: "Send Email"
   },
   {

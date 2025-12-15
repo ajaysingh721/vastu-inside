@@ -24,23 +24,26 @@ A modern, responsive, and feature-rich website for Vastu consultation services b
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn
 
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/ajaysingh721/vastu-inside.git
 cd vastu-inside
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Run the development server:
+
 ```bash
 npm run dev
 ```
@@ -101,6 +104,7 @@ colors: {
 ### Content
 
 Update the content in respective page files:
+
 - Home content: `app/page.tsx`
 - Services: `app/services/page.tsx`
 - About: `app/about/page.tsx`
@@ -122,11 +126,11 @@ Update the content in respective page files:
 PWA settings can be modified in `next.config.js`:
 
 ```javascript
-const withPWA = require('next-pwa')({
-  dest: 'public',
+const withPWA = require("next-pwa")({
+  dest: "public",
   register: true,
   skipWaiting: true,
-  disable: process.env.NODE_ENV === 'development',
+  disable: process.env.NODE_ENV === "development",
 });
 ```
 
@@ -144,7 +148,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📞 Support
 
-For support, email info@vastuinside.com or visit our contact page.
+For support, email support@vastuinside.com or visit our contact page.
 
 ## 🙏 Acknowledgments
 
