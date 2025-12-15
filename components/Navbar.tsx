@@ -33,12 +33,7 @@ export default function Navbar() {
               Services
             </Link>
             
-            <Link href="/process" className="nav-link-hover text-gray-700 hover:text-primary-500 font-medium transition-all duration-300 stagger-3 nav-item-enter-active">
-              Process
-            </Link>
-            
-            
-            <Link href="/about" className="nav-link-hover text-gray-700 hover:text-primary-500 font-medium transition-all duration-300 stagger-5 nav-item-enter-active">
+            <Link href="/about" className="nav-link-hover text-gray-700 hover:text-primary-500 font-medium transition-all duration-300 stagger-3 nav-item-enter-active">
               About Us
             </Link>
             
@@ -166,16 +161,8 @@ export default function Navbar() {
               </Link>
               
               <Link 
-                href="/process" 
-                className="nav-link-hover text-gray-700 hover:text-primary-500 font-medium transition-all duration-300 stagger-3"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Process
-              </Link>
-              
-              <Link 
                 href="/faq" 
-                className="nav-link-hover text-gray-700 hover:text-primary-500 font-medium transition-all duration-300 stagger-4"
+                className="nav-link-hover text-gray-700 hover:text-primary-500 font-medium transition-all duration-300 stagger-3"
                 onClick={() => setIsMenuOpen(false)}
               >
                 FAQ
