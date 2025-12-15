@@ -9,23 +9,23 @@ export default function Home() {
   return (
     <div className="bg-white overflow-hidden">
       {/* Hero Section */}
-      <section className="relative particles gradient-mesh section-padding min-h-[90vh] flex items-center">
+      <section className="relative particles gradient-mesh py-12 md:py-16 lg:py-20 min-h-[auto] md:min-h-[80vh] flex items-center">
         {/* Floating decorative elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-primary-400/20 rounded-full blur-2xl float"></div>
-        <div className="absolute bottom-20 right-20 w-32 h-32 bg-secondary-400/20 rounded-full blur-3xl float-delayed"></div>
-        <div className="absolute top-1/2 right-1/4 w-16 h-16 bg-purple-400/20 rounded-full blur-xl float-slow"></div>
+        <div className="absolute top-20 left-10 w-20 h-20 bg-primary-400/20 rounded-full blur-2xl float hidden md:block"></div>
+        <div className="absolute bottom-20 right-20 w-32 h-32 bg-secondary-400/20 rounded-full blur-3xl float-delayed hidden md:block"></div>
+        <div className="absolute top-1/2 right-1/4 w-16 h-16 bg-purple-400/20 rounded-full blur-xl float-slow hidden md:block"></div>
         
-        <div className="container-custom relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 animate-fade-in">
-              <h1 className="heading-xl animate-slide-in">
+        <div className="container-custom relative z-10 px-4">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="space-y-4 md:space-y-6 animate-fade-in">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold font-serif text-gray-900 animate-slide-in">
                 Transform Your Space with <span className="text-gradient">Vastu Wisdom</span>
               </h1>
-              <p className="text-body animate-slide-in-delay-1">
+              <p className="text-base md:text-lg text-gray-600 leading-relaxed animate-slide-in-delay-1">
                 Experience harmony, prosperity, and well-being through expert Vastu consultation. 
                 We blend ancient wisdom with modern living to create spaces that nurture success and happiness.
               </p>
-              <div className="flex flex-wrap gap-4 animate-slide-in-delay-2">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 animate-slide-in-delay-2">
                 <Link href="/contact" className="btn-primary shimmer pulse-glow inline-flex items-center gap-2">
                   <FaCalendarAlt className="w-4 h-4" />
                   Book Consultation
@@ -35,40 +35,41 @@ export default function Home() {
                   Our Services
                 </Link>
               </div>
-              <div className="flex items-center gap-8 pt-4 animate-slide-in-delay-3">
-                <div className="glass p-4 rounded-xl hover-lift">
-                  <div className="text-3xl font-bold text-gradient">
+              <div className="grid grid-cols-3 gap-2 sm:gap-4 md:gap-6 lg:gap-8 pt-4 animate-slide-in-delay-3">
+                <div className="glass p-2 sm:p-3 md:p-4 rounded-lg md:rounded-xl hover-lift text-center">
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-gradient">
                     <CountUp end={500} suffix="+" />
                   </div>
-                  <div className="text-sm text-gray-700">Happy Clients</div>
+                  <div className="text-xs sm:text-sm text-gray-700 mt-1">Happy Clients</div>
                 </div>
-                <div className="glass p-4 rounded-xl hover-lift">
-                  <div className="text-3xl font-bold text-gradient">
+                <div className="glass p-2 sm:p-3 md:p-4 rounded-lg md:rounded-xl hover-lift text-center">
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-gradient">
                     <CountUp end={15} suffix="+" />
                   </div>
-                  <div className="text-sm text-gray-700">Years Experience</div>
+                  <div className="text-xs sm:text-sm text-gray-700 mt-1">Years Experience</div>
                 </div>
-                <div className="glass p-4 rounded-xl hover-lift">
-                  <div className="text-3xl font-bold text-gradient">
+                <div className="glass p-2 sm:p-3 md:p-4 rounded-lg md:rounded-xl hover-lift text-center">
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-gradient">
                     <CountUp end={98} suffix="%" />
                   </div>
-                  <div className="text-sm text-gray-700">Satisfaction Rate</div>
+                  <div className="text-xs sm:text-sm text-gray-700 mt-1">Satisfaction Rate</div>
                 </div>
               </div>
             </div>
-            <div className="relative h-[400px] lg:h-[500px] animate-fade-in-delay">
-              <div className="absolute inset-0 gradient-primary rounded-3xl transform rotate-3 float opacity-20"></div>
-              <div className="absolute inset-0 glass rounded-3xl shadow-2xl overflow-hidden hover-lift">
+            <div className="relative h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] w-full animate-fade-in-delay mt-8 lg:mt-0">
+              <div className="absolute inset-0 gradient-primary rounded-2xl md:rounded-3xl transform rotate-3 float opacity-20 hidden sm:block"></div>
+              <div className="relative w-full h-full glass rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden hover-lift">
                 <Image
-                  src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                  src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
                   alt="Vastu Consultation - Harmonious living space design"
                   fill
                   className="object-cover"
+                  priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 text-center p-8 text-white">
-                  <h3 className="text-2xl font-bold mb-2">Vastu Consultation</h3>
-                  <p className="text-white/90">Creating harmonious living spaces</p>
+                <div className="absolute bottom-0 left-0 right-0 text-center p-4 sm:p-6 md:p-8 text-white">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 md:mb-2">Vastu Consultation</h3>
+                  <p className="text-sm sm:text-base text-white/90">Creating harmonious living spaces</p>
                 </div>
               </div>
             </div>

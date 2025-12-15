@@ -281,9 +281,20 @@ export default function ContactPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
                     </div>
-                    <div>
-                      <h4 className="font-semibold mb-1">Address</h4>
-                      <p className="text-gray-600 text-sm">123 Vastu Street, City, State 12345</p>
+                    <div className="flex-1">
+                      <h4 className="font-semibold mb-2">Our Offices</h4>
+                      <div className="space-y-3">
+                        <div className="border-l-2 border-primary-500 pl-3">
+                          <p className="font-semibold text-sm text-primary-600 mb-1">Main Office</p>
+                          <p className="text-gray-600 text-sm">V-21, Chatikara Road, Vrindavan</p>
+                          <p className="text-gray-600 text-sm">Uttar Pradesh - 281504, India</p>
+                        </div>
+                        <div className="border-l-2 border-secondary-400 pl-3">
+                          <p className="font-semibold text-sm text-secondary-600 mb-1">Branch Office</p>
+                          <p className="text-gray-600 text-sm">Hanuman Nagar, Kankarbagh </p>
+                          <p className="text-gray-600 text-sm">Patna - 800020, India</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
@@ -295,8 +306,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h4 className="font-semibold mb-1">Phone</h4>
-                      <p className="text-gray-600 text-sm">+1 (555) 123-4567</p>
-                      <p className="text-gray-600 text-sm">+1 (555) 987-6543</p>
+                      <p className="text-gray-600 text-sm">+91 9599668544</p>
                     </div>
                   </div>
 

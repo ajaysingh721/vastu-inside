@@ -19,7 +19,7 @@ export default function Navbar() {
               <div className="absolute inset-0 text-3xl md:text-4xl text-primary-400 animate-ping opacity-20">🕉️</div>
             </div>
             <span className="text-2xl md:text-3xl font-bold font-serif bg-gradient-to-r from-primary-600 via-secondary-500 to-primary-600 bg-clip-text text-transparent animate-gradient-x">
-              Vastu Inside
+              VastuInside
             </span>
           </Link>
 
@@ -92,7 +92,7 @@ export default function Navbar() {
                   YouTube
                 </a>
                 <a 
-                  href="https://wa.me/" 
+                  href="https://wa.me/917858992627" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-500 transition-colors duration-200"

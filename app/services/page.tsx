@@ -70,6 +70,22 @@ export default function ServicesPage() {
                       </div>
                     ))}
                   </div>
+                  
+                  {/* Vastu Subcategories */}
+                  {service.id === 'vastu' && service.subcategories && (
+                    <div className="mt-8 space-y-3">
+                      <h3 className="font-bold text-lg mb-4 text-white">Vastu Service Tiers</h3>
+                      {service.subcategories.map((sub, idx) => (
+                        <div key={idx} className="glass rounded-xl p-4 shadow-lg hover:scale-105 transition-transform duration-300">
+                          <div className="flex items-center gap-3 mb-2">
+                            <span className="text-2xl">{sub.icon}</span>
+                            <h4 className="font-bold text-gradient">{sub.name}</h4>
+                          </div>
+                          <p className="text-gray-700 text-xs leading-relaxed">{sub.description}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
@@ -166,6 +182,23 @@ const services = [
       {
         title: "Proven Methodology",
         description: "Traditional wisdom with modern application"
+      }
+    ],
+    subcategories: [
+      {
+        name: "Basic Vastu",
+        icon: "⭐",
+        description: "Essential Vastu principles for foundational harmony. Includes basic directional analysis, main entrance assessment, and simple remedies for positive energy flow."
+      },
+      {
+        name: "Beneficial Vastu",
+        icon: "✨",
+        description: "Advanced Vastu consultation with detailed room-by-room analysis, element balancing, color recommendations, and comprehensive remedies for enhanced prosperity and well-being."
+      },
+      {
+        name: "Super Beneficial Vastu",
+        icon: "🌟",
+        description: "Premium Vastu service with complete property evaluation, personalized astrological alignment, custom remedy planning, follow-up consultations, and ongoing support for maximum benefits."
       }
     ]
   },
