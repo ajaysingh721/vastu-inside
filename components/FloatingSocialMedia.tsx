@@ -74,9 +74,11 @@ export default function FloatingSocialMedia() {
           <HiUserGroup className={`w-6 h-6 transition-all duration-500 ${isExpanded ? 'scale-110 rotate-12' : 'rotate-0'}`} />
         </button>
         
-        <div className={`flex flex-row-reverse items-center gap-2 overflow-x-hidden overflow-y-visible transition-all duration-500 ease-in-out ${
-          isExpanded ? 'max-w-[200px] opacity-100' : 'max-w-0 opacity-0'
-        }`}>
+        <div
+          className={`flex flex-row-reverse items-center gap-2 overflow-visible transition-[width,opacity] duration-500 ease-in-out ${
+            isExpanded ? "w-[280px] opacity-100" : "w-0 opacity-0 pointer-events-none"
+          }`}
+        >
           <a 
             href="https://wa.me/917858992627" 
             target="_blank"
@@ -144,6 +146,15 @@ export default function FloatingSocialMedia() {
               Facebook
             </span>
           </a>
+
+          <span
+            className={`text-sm font-semibold text-primary-700 whitespace-nowrap transition-all duration-500 ${
+              isExpanded ? "opacity-100 translate-x-0" : "opacity-0 translate-x-2"
+            }`}
+            style={{ transitionDelay: "300ms" }}
+          >
+            Contact Us
+          </span>
         </div>
       </div>
     </div>
