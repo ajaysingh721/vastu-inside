@@ -85,7 +85,7 @@ export default function ServicesPage() {
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="heading-lg mb-4">Service <span className="text-gradient">Tiers</span></h2>
+            <h2 className="heading-lg mb-4">Vastu Service <span className="text-gradient">Tiers</span></h2>
             <p className="text-body max-w-2xl mx-auto">
               Choose the tier that best fits your needs
             </p>
