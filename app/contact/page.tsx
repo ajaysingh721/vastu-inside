@@ -19,7 +19,8 @@ export default function ContactPage() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
+    // TODO: Implement actual form submission to backend API
+    // This is currently a demo implementation
     setTimeout(() => {
       setSubmitMessage("Thank you for your inquiry! We'll get back to you within 24 hours.");
       setIsSubmitting(false);
