@@ -8,8 +8,8 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <span className="text-2xl">🏠</span>
-              <span className="text-xl font-bold font-serif text-white">
+              <span className="text-3xl">🕉️</span>
+              <span className="text-2xl font-bold font-serif bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent">
                 Vastu Inside
               </span>
             </div>
@@ -61,11 +61,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="hover:text-primary-400 transition-colors">
-                  Blog
-                </Link>
-              </li>
-              <li>
                 <Link href="/contact" className="hover:text-primary-400 transition-colors">
                   Contact
                 </Link>
@@ -78,28 +73,18 @@ export default function Footer() {
             <h3 className="text-white font-bold text-lg mb-4">Services</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/services#residential" className="hover:text-primary-400 transition-colors">
-                  Residential Vastu
+                <Link href="/services#vastu" className="hover:text-primary-400 transition-colors">
+                  Vastu
                 </Link>
               </li>
               <li>
-                <Link href="/services#commercial" className="hover:text-primary-400 transition-colors">
-                  Commercial Vastu
+                <Link href="/services#interior" className="hover:text-primary-400 transition-colors">
+                  Interior
                 </Link>
               </li>
               <li>
-                <Link href="/services#pre-construction" className="hover:text-primary-400 transition-colors">
-                  Pre-Construction
-                </Link>
-              </li>
-              <li>
-                <Link href="/services#remedies" className="hover:text-primary-400 transition-colors">
-                  Vastu Remedies
-                </Link>
-              </li>
-              <li>
-                <Link href="/services#site-analysis" className="hover:text-primary-400 transition-colors">
-                  Site Analysis
+                <Link href="/services#construction" className="hover:text-primary-400 transition-colors">
+                  Construction
                 </Link>
               </li>
             </ul>

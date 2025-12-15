@@ -13,9 +13,12 @@ export default function Navbar() {
       <div className="container-custom">
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="text-2xl">🏠</span>
-            <span className="text-xl md:text-2xl font-bold font-serif text-primary-500">
+          <Link href="/" className="flex items-center space-x-2 group">
+            <div className="relative">
+              <span className="text-3xl md:text-4xl animate-pulse">🕉️</span>
+              <div className="absolute inset-0 text-3xl md:text-4xl text-primary-400 animate-ping opacity-20">🕉️</div>
+            </div>
+            <span className="text-2xl md:text-3xl font-bold font-serif bg-gradient-to-r from-primary-600 via-secondary-500 to-primary-600 bg-clip-text text-transparent animate-gradient-x">
               Vastu Inside
             </span>
           </Link>
@@ -104,7 +107,7 @@ export default function Navbar() {
               </div>
             </div>
             
-            <Link href="/contact" className="btn-primary">
+            <Link href="/contact" className="btn-primary shimmer pulse-glow">
               Contact Us
             </Link>
           </div>
@@ -236,7 +239,7 @@ export default function Navbar() {
               
               <Link 
                 href="/contact" 
-                className="btn-primary inline-block text-center"
+                className="btn-primary inline-block text-center shimmer pulse-glow"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact Us

@@ -135,176 +135,89 @@ export default function ServicesPage() {
 
 const services = [
   {
-    id: "residential",
-    icon: "🏡",
-    title: "Residential Vastu",
-    description: "Transform your home into a sanctuary of positive energy. Our residential Vastu services cover everything from apartment layouts to villa designs, ensuring your living space promotes health, happiness, and prosperity for you and your family.",
+    id: "vastu",
+    icon: "🕉️",
+    title: "Vastu",
+    description: "Expert Vastu consultation for homes and businesses to create positive energy flow and harmonious living spaces. Our comprehensive analysis covers directional influences, element balance, and placement optimization for maximum prosperity and well-being.",
     gradient: "from-blue-100 to-blue-200",
     features: [
-      "Complete home analysis and consultation",
+      "Complete property analysis and consultation",
+      "Directional and elemental assessment",
       "Room-by-room Vastu guidance",
-      "Direction and placement recommendations",
-      "Color and element suggestions",
-      "Furniture arrangement optimization",
+      "Energy flow optimization",
+      "Color and material recommendations",
       "Detailed written report with diagrams"
     ],
     highlights: [
       {
-        title: "Site Visit",
-        description: "Comprehensive on-site evaluation of your property"
+        title: "Comprehensive Analysis",
+        description: "Complete evaluation of your space's energy dynamics"
       },
       {
-        title: "Detailed Report",
-        description: "Written analysis with actionable recommendations"
+        title: "Personalized Solutions",
+        description: "Tailored recommendations for your specific needs"
       },
       {
-        title: "Follow-up Support",
-        description: "30 days of consultation support"
+        title: "Proven Methodology",
+        description: "Traditional wisdom with modern application"
       }
     ]
   },
   {
-    id: "commercial",
-    icon: "🏢",
-    title: "Commercial Vastu",
-    description: "Optimize your business premises for success and growth. Whether it's an office, retail space, or industrial facility, we help create an environment that enhances productivity, attracts customers, and promotes financial prosperity.",
+    id: "interior",
+    icon: "🏠",
+    title: "Interior",
+    description: "Complete interior design solutions that blend aesthetics with Vastu principles for optimal functionality and harmony. We create beautiful, balanced spaces that not only look stunning but also promote positive energy flow and well-being.",
     gradient: "from-purple-100 to-purple-200",
     features: [
-      "Office layout and cabin placement",
-      "Reception and entrance optimization",
-      "Meeting room arrangement",
-      "Employee seating guidelines",
-      "Cash counter and safe positioning",
-      "Marketing and branding alignment"
+      "Interior design with Vastu compliance",
+      "Furniture layout and placement",
+      "Color scheme optimization",
+      "Lighting and ambiance design",
+      "Material and texture selection",
+      "Space utilization planning"
     ],
     highlights: [
       {
-        title: "Business Analysis",
-        description: "Understanding your business needs and goals"
+        title: "Design & Vastu Integration",
+        description: "Beautiful aesthetics with energetic harmony"
       },
       {
-        title: "Productivity Focus",
-        description: "Optimizing space for maximum efficiency"
+        title: "Functional Spaces",
+        description: "Practical layouts that enhance daily life"
       },
       {
-        title: "ROI Tracking",
-        description: "Monitoring positive changes post-implementation"
+        title: "Complete Solutions",
+        description: "From concept to final implementation"
       }
     ]
   },
   {
-    id: "pre-construction",
+    id: "construction",
     icon: "🏗️",
-    title: "Pre-Construction Consultation",
-    description: "Start your project on the right foundation. Our pre-construction services help you plan and design your building according to Vastu principles from the ground up, avoiding costly corrections later.",
+    title: "Construction",
+    description: "Pre-construction planning and Vastu-compliant construction services for new buildings and renovations. We ensure your project starts with the right foundation, incorporating Vastu principles from the initial planning stages for optimal results.",
     gradient: "from-green-100 to-green-200",
     features: [
+      "Pre-construction Vastu planning",
       "Plot selection and evaluation",
-      "Building orientation planning",
-      "Foundation ceremony timing",
-      "Floor plan review and approval",
-      "Construction phase guidance",
-      "Material and color selection"
+      "Building orientation guidance",
+      "Architectural plan review",
+      "Construction phase monitoring",
+      "Material selection with Vastu consideration"
     ],
     highlights: [
       {
-        title: "Blueprint Review",
-        description: "Vastu compliance check for architectural plans"
+        title: "Foundation Planning",
+        description: "Starting your project with Vastu-aligned foundations"
       },
       {
-        title: "Site Selection",
-        description: "Guidance on choosing the right plot"
+        title: "Construction Oversight",
+        description: "Ensuring Vastu compliance throughout building"
       },
       {
-        title: "Construction Phase",
-        description: "Ongoing consultation during building"
-      }
-    ]
-  },
-  {
-    id: "remedies",
-    icon: "🔧",
-    title: "Vastu Remedies",
-    description: "Practical solutions for existing spaces. Not all Vastu defects require major renovations. We provide effective remedial measures using colors, elements, symbols, and minor adjustments to correct Vastu imbalances.",
-    gradient: "from-orange-100 to-orange-200",
-    features: [
-      "Non-structural correction methods",
-      "Use of colors and elements",
-      "Crystal and symbol placement",
-      "Mirror and lighting solutions",
-      "Plant and water feature recommendations",
-      "Energy enhancement techniques"
-    ],
-    highlights: [
-      {
-        title: "Cost-Effective",
-        description: "Solutions without major construction"
-      },
-      {
-        title: "Quick Implementation",
-        description: "Most remedies can be applied immediately"
-      },
-      {
-        title: "Proven Results",
-        description: "Traditional remedies with modern application"
-      }
-    ]
-  },
-  {
-    id: "site-analysis",
-    icon: "📐",
-    title: "Site Analysis",
-    description: "Comprehensive evaluation of your plot or land. Before you build or buy, understand the Vastu characteristics of the site including soil quality, shape, slope, surrounding environment, and directional influences.",
-    gradient: "from-pink-100 to-pink-200",
-    features: [
-      "Soil and terrain evaluation",
-      "Shape and dimension analysis",
-      "Directional assessment",
-      "Surrounding environment check",
-      "Road and entrance positioning",
-      "Comparison of multiple sites"
-    ],
-    highlights: [
-      {
-        title: "Site Inspection",
-        description: "Physical evaluation of the property"
-      },
-      {
-        title: "Comparative Analysis",
-        description: "If choosing between multiple plots"
-      },
-      {
-        title: "Investment Guidance",
-        description: "Making informed property decisions"
-      }
-    ]
-  },
-  {
-    id: "corporate",
-    icon: "💼",
-    title: "Corporate Consulting",
-    description: "Specialized services for large organizations and industrial complexes. We work with corporations to create Vastu-compliant workspaces that enhance employee well-being, productivity, and overall business success.",
-    gradient: "from-teal-100 to-teal-200",
-    features: [
-      "Multi-location assessments",
-      "Factory and warehouse planning",
-      "Corporate office optimization",
-      "Employee wellness programs",
-      "Energy efficiency integration",
-      "Long-term partnership programs"
-    ],
-    highlights: [
-      {
-        title: "Enterprise Scale",
-        description: "Solutions for large organizations"
-      },
-      {
-        title: "Team Training",
-        description: "Educating facility managers and teams"
-      },
-      {
-        title: "Ongoing Partnership",
-        description: "Continuous support and monitoring"
+        title: "Long-term Benefits",
+        description: "Investing in prosperity from day one"
       }
     ]
   }
@@ -312,44 +225,44 @@ const services = [
 
 const packages = [
   {
-    name: "Basic",
-    price: "299",
-    description: "Perfect for small apartments or single rooms",
+    name: "Vastu Consultation",
+    price: "499",
+    description: "Complete Vastu analysis for your existing space",
     features: [
-      "Virtual consultation (1 hour)",
-      "Basic Vastu analysis",
-      "Written recommendations",
-      "Email support for 7 days",
-      "Digital report"
+      "On-site property evaluation",
+      "Comprehensive Vastu analysis",
+      "Detailed written report with diagrams",
+      "Personalized recommendations",
+      "30 days email support",
+      "Remedies and implementation guidance"
     ],
     featured: false
   },
   {
-    name: "Professional",
-    price: "799",
-    description: "Ideal for homes and small offices",
+    name: "Interior Design",
+    price: "1,299",
+    description: "Full interior design with Vastu integration",
     features: [
-      "On-site visit included",
-      "Comprehensive Vastu analysis",
-      "Detailed written report with diagrams",
-      "Remedies and solutions",
-      "30 days follow-up support",
-      "Video consultation included"
+      "Complete interior design consultation",
+      "Vastu-compliant layout planning",
+      "Material and color selection",
+      "3D visualization of designs",
+      "Furniture and decor recommendations",
+      "60 days implementation support"
     ],
     featured: true
   },
   {
-    name: "Premium",
-    price: "1,499",
-    description: "Best for large homes and commercial spaces",
+    name: "Construction Planning",
+    price: "2,499",
+    description: "Pre-construction Vastu planning and oversight",
     features: [
-      "Multiple site visits",
-      "Complete Vastu planning",
-      "Architectural review",
-      "3D visualization support",
-      "90 days ongoing support",
-      "Priority consultation access",
-      "Implementation assistance"
+      "Plot evaluation and selection guidance",
+      "Architectural plan Vastu review",
+      "Construction phase monitoring",
+      "Material selection with Vastu consideration",
+      "Foundation and orientation planning",
+      "90 days construction support"
     ],
     featured: false
   }

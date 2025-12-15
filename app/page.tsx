@@ -210,34 +210,19 @@ export default function Home() {
 
 const services = [
   {
-    icon: "🏡",
-    title: "Residential Vastu",
-    description: "Complete Vastu consultation for homes, apartments, and villas to create positive energy flow."
+    icon: "🕉️",
+    title: "Vastu",
+    description: "Expert Vastu consultation for homes and businesses to create positive energy flow and harmonious living spaces."
   },
   {
-    icon: "🏢",
-    title: "Commercial Vastu",
-    description: "Optimize your office, retail space, or business premises for success and prosperity."
+    icon: "🏠",
+    title: "Interior",
+    description: "Complete interior design solutions that blend aesthetics with Vastu principles for optimal functionality."
   },
   {
     icon: "🏗️",
-    title: "Pre-Construction",
-    description: "Plan your construction with Vastu principles from the ground up for optimal results."
-  },
-  {
-    icon: "🔧",
-    title: "Vastu Remedies",
-    description: "Practical solutions to correct Vastu defects without major structural changes."
-  },
-  {
-    icon: "📐",
-    title: "Site Analysis",
-    description: "Comprehensive plot and land evaluation according to Vastu principles."
-  },
-  {
-    icon: "💼",
-    title: "Corporate Consulting",
-    description: "Specialized services for large organizations and industrial complexes."
+    title: "Construction",
+    description: "Pre-construction planning and Vastu-compliant construction services for new buildings and renovations."
   }
 ];
 
