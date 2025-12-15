@@ -12,7 +12,7 @@ export default function Home() {
       {/* Welcome Section */}
       <section className="relative bg-gradient-to-br from-primary-50 via-white to-secondary-50 py-12 md:py-16">
         <div className="container-custom px-4">
-          <ScrollAnimation animation="fade-in">
+          <ScrollAnimation animation="fade-up">
             <div className="flex flex-col items-center text-center space-y-6">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-400 to-secondary-400 rounded-full blur-2xl opacity-20 animate-pulse"></div>

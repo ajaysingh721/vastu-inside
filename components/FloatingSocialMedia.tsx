@@ -76,7 +76,7 @@ export default function FloatingSocialMedia() {
         
         <div
           className={`flex flex-row-reverse items-center gap-2 overflow-visible transition-[width,opacity] duration-500 ease-in-out ${
-            isExpanded ? "w-[280px] opacity-100" : "w-0 opacity-0 pointer-events-none"
+            isExpanded ? "w-[320px] opacity-100" : "w-0 opacity-0 pointer-events-none"
           }`}
         >
           <a 
@@ -153,7 +153,7 @@ export default function FloatingSocialMedia() {
             }`}
             style={{ transitionDelay: "300ms" }}
           >
-            Contact Us
+            Connect with us!
           </span>
         </div>
       </div>
