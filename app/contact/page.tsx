@@ -263,16 +263,6 @@ export default function ContactPage() {
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                   </button>
-                    ></textarea>
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </button>
                 </form>
               </div>
             </div>
@@ -338,6 +328,13 @@ export default function ContactPage() {
               </div>
 
               <div className="card bg-gradient-to-br from-primary-50 to-secondary-50 border-2 border-primary-200">
+                <div className="mb-4">
+                  <img 
+                    src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                    alt="Vastu Consultation" 
+                    className="w-full h-48 object-cover rounded-lg"
+                  />
+                </div>
                 <h3 className="text-xl font-bold mb-3">Schedule a Free Consultation</h3>
                 <p className="text-gray-700 mb-4 text-sm">
                   Not sure where to start? Book a complimentary 15-minute consultation 

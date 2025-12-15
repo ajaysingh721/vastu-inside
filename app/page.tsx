@@ -54,11 +54,17 @@ export default function Home() {
             </div>
             <div className="relative h-[400px] lg:h-[500px] animate-fade-in-delay">
               <div className="absolute inset-0 gradient-primary rounded-3xl transform rotate-3 float opacity-20"></div>
-              <div className="absolute inset-0 glass rounded-3xl shadow-2xl flex items-center justify-center hover-lift">
-                <div className="text-center p-8">
-                  <div className="text-6xl mb-4 float">🏠</div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Vastu Consultation</h3>
-                  <p className="text-gray-600">Creating harmonious living spaces</p>
+              <div className="absolute inset-0 glass rounded-3xl shadow-2xl overflow-hidden hover-lift">
+                <Image
+                  src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                  alt="Vastu Consultation - Harmonious living space design"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 text-center p-8 text-white">
+                  <h3 className="text-2xl font-bold mb-2">Vastu Consultation</h3>
+                  <p className="text-white/90">Creating harmonious living spaces</p>
                 </div>
               </div>
             </div>

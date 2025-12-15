@@ -6,7 +6,6 @@ import { FaFacebookF, FaInstagram, FaYoutube, FaWhatsapp, FaLinkedin } from "rea
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isSocialOpen, setIsSocialOpen] = useState(false);
 
   return (
@@ -27,51 +26,12 @@ export default function Navbar() {
               Home
             </Link>
             
-            {/* Services Dropdown */}
-            <div 
-              className="relative group"
-              onMouseEnter={() => setIsServicesOpen(true)}
-              onMouseLeave={() => setIsServicesOpen(false)}
-            >
-              <button className="text-gray-700 hover:text-primary-500 font-medium transition-colors flex items-center gap-1">
-                Services
-                <svg 
-                  className={`w-4 h-4 transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`}
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              
-              {/* Dropdown Menu */}
-              <div className={`absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden transition-all duration-300 ${
-                isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
-              }`}>
-                <Link 
-                  href="/services/vastu" 
-                  className="block px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-500 transition-colors duration-200"
-                >
-                  Vastu
-                </Link>
-                <Link 
-                  href="/services/interior" 
-                  className="block px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-500 transition-colors duration-200"
-                >
-                  Interior
-                </Link>
-                <Link 
-                  href="/services/construction" 
-                  className="block px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-500 transition-colors duration-200"
-                >
-                  Construction
-                </Link>
-              </div>
-            </div>
+            <Link href="/services" className="text-gray-700 hover:text-primary-500 font-medium transition-colors">
+              Services
+            </Link>
             
             <Link href="/about" className="text-gray-700 hover:text-primary-500 font-medium transition-colors">
-              About
+              About Us
             </Link>
             
             {/* Social Media Dropdown */}
@@ -102,7 +62,7 @@ export default function Navbar() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-500 transition-colors duration-200"
                 >
-                  <FaFacebookF className="w-4 h-4" />
+                  <FaFacebookF className="w-4 h-4 text-blue-600" />
                   Facebook
                 </a>
                 <a 
@@ -111,7 +71,7 @@ export default function Navbar() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-500 transition-colors duration-200"
                 >
-                  <FaInstagram className="w-4 h-4" />
+                  <FaInstagram className="w-4 h-4 text-pink-500" />
                   Instagram
                 </a>
                 <a 
@@ -120,7 +80,7 @@ export default function Navbar() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-500 transition-colors duration-200"
                 >
-                  <FaYoutube className="w-4 h-4" />
+                  <FaYoutube className="w-4 h-4 text-red-500" />
                   YouTube
                 </a>
                 <a 
@@ -129,7 +89,7 @@ export default function Navbar() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-500 transition-colors duration-200"
                 >
-                  <FaWhatsapp className="w-4 h-4" />
+                  <FaWhatsapp className="w-4 h-4 text-green-500" />
                   WhatsApp
                 </a>
                 <a 
@@ -138,7 +98,7 @@ export default function Navbar() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-500 transition-colors duration-200"
                 >
-                  <FaLinkedin className="w-4 h-4" />
+                  <FaLinkedin className="w-4 h-4 text-blue-700" />
                   LinkedIn
                 </a>
               </div>
@@ -185,49 +145,13 @@ export default function Navbar() {
                 Home
               </Link>
               
-              {/* Mobile Services Submenu */}
-              <div>
-                <button 
-                  className="w-full text-left text-gray-700 hover:text-primary-500 font-medium transition-colors flex items-center justify-between"
-                  onClick={() => setIsServicesOpen(!isServicesOpen)}
-                >
-                  Services
-                  <svg 
-                    className={`w-4 h-4 transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`}
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                
-                {isServicesOpen && (
-                  <div className="ml-4 mt-2 space-y-2 animate-fadeIn">
-                    <Link 
-                      href="/services/vastu" 
-                      className="block text-gray-600 hover:text-primary-500 transition-colors py-2"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      → Vastu
-                    </Link>
-                    <Link 
-                      href="/services/interior" 
-                      className="block text-gray-600 hover:text-primary-500 transition-colors py-2"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      → Interior
-                    </Link>
-                    <Link 
-                      href="/services/construction" 
-                      className="block text-gray-600 hover:text-primary-500 transition-colors py-2"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      → Construction
-                    </Link>
-                  </div>
-                )}
-              </div>
+              <Link 
+                href="/services" 
+                className="text-gray-700 hover:text-primary-500 font-medium transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Services
+              </Link>
               
               <Link 
                 href="/about" 
@@ -263,7 +187,7 @@ export default function Navbar() {
                       className="flex items-center gap-3 text-gray-600 hover:text-primary-500 transition-colors py-2"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      <FaFacebookF className="w-4 h-4" />
+                      <FaFacebookF className="w-4 h-4 text-blue-600" />
                       Facebook
                     </a>
                     <a 
@@ -273,7 +197,7 @@ export default function Navbar() {
                       className="flex items-center gap-3 text-gray-600 hover:text-primary-500 transition-colors py-2"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      <FaInstagram className="w-4 h-4" />
+                      <FaInstagram className="w-4 h-4 text-pink-500" />
                       Instagram
                     </a>
                     <a 
@@ -283,7 +207,7 @@ export default function Navbar() {
                       className="flex items-center gap-3 text-gray-600 hover:text-primary-500 transition-colors py-2"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      <FaYoutube className="w-4 h-4" />
+                      <FaYoutube className="w-4 h-4 text-red-500" />
                       YouTube
                     </a>
                     <a 
@@ -293,7 +217,7 @@ export default function Navbar() {
                       className="flex items-center gap-3 text-gray-600 hover:text-primary-500 transition-colors py-2"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      <FaWhatsapp className="w-4 h-4" />
+                      <FaWhatsapp className="w-4 h-4 text-green-500" />
                       WhatsApp
                     </a>
                     <a 
@@ -303,7 +227,7 @@ export default function Navbar() {
                       className="flex items-center gap-3 text-gray-600 hover:text-primary-500 transition-colors py-2"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      <FaLinkedin className="w-4 h-4" />
+                      <FaLinkedin className="w-4 h-4 text-blue-700" />
                       LinkedIn
                     </a>
                   </div>
