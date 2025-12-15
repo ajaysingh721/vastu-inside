@@ -60,7 +60,7 @@ export default function Home() {
               <div className="absolute inset-0 gradient-primary rounded-2xl md:rounded-3xl transform rotate-3 float opacity-20 hidden sm:block"></div>
               <div className="relative w-full h-full glass rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden hover-lift">
                 <Image
-                  src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                  src="/images/hero-home.jpg"
                   alt="Vastu Consultation - Harmonious living space design"
                   fill
                   className="object-cover"
@@ -211,7 +211,7 @@ export default function Home() {
           <p className="text-xl mb-8 max-w-2xl mx-auto text-white/90 animate-fade-in-delay">
             Book your consultation today and start your journey towards a harmonious living environment.
           </p>
-          <Link href="/contact" className="inline-block bg-white text-primary-500 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 animate-slide-in-delay-2 shimmer inline-flex items-center gap-2">
+          <Link href="/contact" className="inline-flex items-center gap-2 bg-white text-primary-500 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 animate-slide-in-delay-2 shimmer">
             <FaCalendarAlt className="w-5 h-5" />
             Schedule Your Consultation
           </Link>
@@ -267,18 +267,18 @@ const testimonials = [
     text: "The Vastu consultation transformed our home. We've experienced better harmony and prosperity since implementing the recommendations.",
     name: "Rajesh Kumar",
     role: "Homeowner",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face"
+    image: "/images/testimonial-1.jpg"
   },
   {
     text: "Professional, knowledgeable, and practical advice. Our office productivity has significantly improved after the Vastu corrections.",
     name: "Priya Sharma",
     role: "Business Owner",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face"
+    image: "/images/testimonial-2.jpg"
   },
   {
     text: "Excellent service! The detailed report and ongoing support made the entire process smooth and effective.",
     name: "Amit Patel",
     role: "Architect",
-    image: "https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=150&h=150&fit=crop&crop=face"
+    image: "/images/testimonial-3.jpg"
   }
 ];
