@@ -1,6 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { FaCalendarAlt } from "react-icons/fa";
+import {
+  FaBullseye,
+  FaCalendarAlt,
+  FaChartLine,
+  FaEye,
+  FaFlask,
+  FaHandshake,
+  FaTools,
+  FaUserGraduate,
+} from "react-icons/fa";
 import WaveDivider from "@/components/WaveDivider";
 import ScrollAnimation from "@/components/ScrollAnimations";
 import CountUp from "@/components/CountUp";
@@ -55,7 +64,9 @@ export default function AboutPage() {
             <div className="gradient-mesh rounded-3xl p-8 lg:p-12 animate-fade-in-delay">
               <div className="space-y-6">
                 <div className="glass rounded-xl p-6 shadow-lg hover-lift">
-                  <div className="text-3xl mb-2 float">🎯</div>
+                  <div className="mb-3 inline-flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-md ring-2 ring-primary-200 float">
+                    <FaBullseye className="w-6 h-6 text-primary-600" aria-hidden="true" />
+                  </div>
                   <h3 className="font-bold text-xl mb-2 text-gradient">Our Mission</h3>
                   <p className="text-gray-700">
                     To empower individuals and businesses with Vastu knowledge that creates 
@@ -63,7 +74,9 @@ export default function AboutPage() {
                   </p>
                 </div>
                 <div className="glass rounded-xl p-6 shadow-lg hover-lift">
-                  <div className="text-3xl mb-2 float-delayed">👁️</div>
+                  <div className="mb-3 inline-flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-md ring-2 ring-secondary-200 float-delayed">
+                    <FaEye className="w-6 h-6 text-secondary-600" aria-hidden="true" />
+                  </div>
                   <h3 className="font-bold text-xl mb-2 text-gradient">Our Vision</h3>
                   <p className="text-gray-700">
                     To be the most trusted Vastu consultation service, known for practical 
@@ -71,7 +84,9 @@ export default function AboutPage() {
                   </p>
                 </div>
                 <div className="glass rounded-xl p-6 shadow-lg hover-lift">
-                  <div className="text-3xl mb-2 float">💎</div>
+                  <div className="mb-3 inline-flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-md ring-2 ring-primary-200 float">
+                    <FaHandshake className="w-6 h-6 text-primary-600" aria-hidden="true" />
+                  </div>
                   <h3 className="font-bold text-xl mb-2 text-gradient">Our Values</h3>
                   <p className="text-gray-700">
                     Authenticity, practicality, respect for tradition, and commitment to 
@@ -204,22 +219,22 @@ export default function AboutPage() {
 
 const features = [
   {
-    icon: "🎓",
+    icon: <FaUserGraduate className="w-12 h-12 mx-auto text-primary-600" aria-hidden="true" />,
     title: "Certified Experts",
     description: "All our consultants are certified in Vastu Shastra with years of practical experience."
   },
   {
-    icon: "🔬",
+    icon: <FaFlask className="w-12 h-12 mx-auto text-secondary-600" aria-hidden="true" />,
     title: "Scientific Approach",
     description: "We combine traditional wisdom with modern understanding of energy and space."
   },
   {
-    icon: "🎯",
+    icon: <FaTools className="w-12 h-12 mx-auto text-primary-600" aria-hidden="true" />,
     title: "Practical Solutions",
     description: "Focus on realistic recommendations that work with your existing space and budget."
   },
   {
-    icon: "💯",
+    icon: <FaChartLine className="w-12 h-12 mx-auto text-secondary-600" aria-hidden="true" />,
     title: "Proven Results",
     description: "Track record of successful consultations with satisfied clients across diverse projects."
   }

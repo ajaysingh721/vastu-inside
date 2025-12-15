@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { FaRocket } from "react-icons/fa";
+import { FaCompass, FaCrown, FaGem, FaRocket } from "react-icons/fa";
 import WaveDivider from "@/components/WaveDivider";
 import ScrollAnimation from "@/components/ScrollAnimations";
 
@@ -71,21 +71,7 @@ export default function ServicesPage() {
                     ))}
                   </div>
                   
-                  {/* Vastu Subcategories */}
-                  {service.id === 'vastu' && service.subcategories && (
-                    <div className="mt-8 space-y-3">
-                      <h3 className="font-bold text-lg mb-4 text-white">Vastu Service Tiers</h3>
-                      {service.subcategories.map((sub, idx) => (
-                        <div key={idx} className="glass rounded-xl p-4 shadow-lg hover:scale-105 transition-transform duration-300">
-                          <div className="flex items-center gap-3 mb-2">
-                            <span className="text-2xl">{sub.icon}</span>
-                            <h4 className="font-bold text-gradient">{sub.name}</h4>
-                          </div>
-                          <p className="text-gray-700 text-xs leading-relaxed">{sub.description}</p>
-                        </div>
-                      ))}
-                    </div>
-                  )}
+                 
                 </div>
               </div>
             ))}
@@ -95,41 +81,33 @@ export default function ServicesPage() {
 
       <WaveDivider color="gray" flip />
 
-      {/* Pricing Section */}
+      {/* Service Tiers Section */}
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="heading-lg mb-4">Service <span className="text-gradient">Packages</span></h2>
+            <h2 className="heading-lg mb-4">Service <span className="text-gradient">Tiers</span></h2>
             <p className="text-body max-w-2xl mx-auto">
-              Choose the package that best fits your needs
+              Choose the tier that best fits your needs
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            {packages.map((pkg, index) => (
-              <div key={index} className={`card glass hover-lift animate-slide-in ${pkg.featured ? 'ring-2 ring-primary-500 scale-105' : ''}`} style={{ animationDelay: `${index * 0.1}s` }}>
-                {pkg.featured && (
-                  <div className="gradient-primary text-white text-sm font-bold px-4 py-1 rounded-full inline-block mb-4">
-                    Most Popular
-                  </div>
-                )}
-                <h3 className="text-2xl font-bold mb-2">{pkg.name}</h3>
-                <div className="text-4xl font-bold text-gradient mb-4">
-                  ${pkg.price}
+            {vastuTiers.map((tier, index) => (
+              <div
+                key={tier.href}
+                className="card glass hover-lift animate-slide-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="mb-4 inline-flex items-center justify-center w-14 h-14 rounded-full bg-white shadow-md ring-2 ring-gray-100">
+                  {tier.icon}
                 </div>
-                <p className="text-gray-600 mb-6">{pkg.description}</p>
-                <ul className="space-y-3 mb-6">
-                  {pkg.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <svg className="w-5 h-5 text-secondary-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-sm">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link href="/contact" className={`${pkg.featured ? 'btn-primary w-full text-center block' : 'btn-outline w-full text-center block'} inline-flex items-center justify-center gap-2`}>
+                <h3 className="text-2xl font-bold mb-3">{tier.title}</h3>
+                <p className="text-gray-600 mb-6">{tier.description}</p>
+                <Link
+                  href={tier.href}
+                  className="btn-outline w-full text-center inline-flex items-center justify-center gap-2"
+                >
                   <FaRocket className="w-4 h-4" />
-                  Choose Plan
+                  View Details
                 </Link>
               </div>
             ))}
@@ -262,47 +240,26 @@ const services = [
   }
 ];
 
-const packages = [
+const vastuTiers = [
   {
-    name: "Vastu Consultation",
-    price: "499",
-    description: "Complete Vastu analysis for your existing space",
-    features: [
-      "On-site property evaluation",
-      "Comprehensive Vastu analysis",
-      "Detailed written report with diagrams",
-      "Personalized recommendations",
-      "30 days email support",
-      "Remedies and implementation guidance"
-    ],
-    featured: false
+    title: "Basic Vastu",
+    href: "/services/basic-vastu",
+    icon: <FaCompass className="w-7 h-7 text-primary-600" aria-hidden="true" />,
+    description:
+      "Essential Vastu principles for foundational harmony. Includes basic directional analysis, main entrance assessment, and simple remedies for positive energy flow.",
   },
   {
-    name: "Interior Design",
-    price: "1,299",
-    description: "Full interior design with Vastu integration",
-    features: [
-      "Complete interior design consultation",
-      "Vastu-compliant layout planning",
-      "Material and color selection",
-      "3D visualization of designs",
-      "Furniture and decor recommendations",
-      "60 days implementation support"
-    ],
-    featured: true
+    title: "Beneficial Vastu",
+    href: "/services/beneficial-vastu",
+    icon: <FaGem className="w-7 h-7 text-secondary-600" aria-hidden="true" />,
+    description:
+      "Advanced Vastu consultation with detailed room-by-room analysis, element balancing, color recommendations, and comprehensive remedies for enhanced prosperity and well-being.",
   },
   {
-    name: "Construction Planning",
-    price: "2,499",
-    description: "Pre-construction Vastu planning and oversight",
-    features: [
-      "Plot evaluation and selection guidance",
-      "Architectural plan Vastu review",
-      "Construction phase monitoring",
-      "Material selection with Vastu consideration",
-      "Foundation and orientation planning",
-      "90 days construction support"
-    ],
-    featured: false
-  }
+    title: "Super Beneficial Vastu",
+    href: "/services/super-beneficial-vastu",
+    icon: <FaCrown className="w-7 h-7 text-primary-600" aria-hidden="true" />,
+    description:
+      "Premium Vastu service with complete property evaluation, personalized astrological alignment, custom remedy planning, follow-up consultations, and ongoing support for maximum benefits.",
+  },
 ];

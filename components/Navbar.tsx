@@ -28,9 +28,48 @@ export default function Navbar() {
               Home
             </Link>
             
-            <Link href="/services" className="nav-link-hover text-gray-700 hover:text-primary-500 font-medium transition-all duration-300 stagger-2 nav-item-enter-active">
-              Services
-            </Link>
+            <div className="relative group stagger-2 nav-item-enter-active">
+              <Link
+                href="/services"
+                className="nav-link-hover text-gray-700 hover:text-primary-500 font-medium transition-all duration-300 inline-flex items-center gap-1"
+              >
+                Services
+                <svg
+                  className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08Z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </Link>
+              <div className="absolute left-0 top-full pt-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:pointer-events-auto transition-all duration-200">
+                <div className="bg-white rounded-xl shadow-xl border border-gray-100 min-w-[240px] overflow-hidden">
+                  <Link
+                    href="/services/basic-vastu"
+                    className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-600 transition-colors"
+                  >
+                    Basic Vastu
+                  </Link>
+                  <Link
+                    href="/services/beneficial-vastu"
+                    className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-600 transition-colors"
+                  >
+                    Beneficial Vastu
+                  </Link>
+                  <Link
+                    href="/services/super-beneficial-vastu"
+                    className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-600 transition-colors"
+                  >
+                    Super Beneficial Vastu
+                  </Link>
+                </div>
+              </div>
+            </div>
             
             <Link href="/gallery" className="nav-link-hover text-gray-700 hover:text-primary-500 font-medium transition-all duration-300 stagger-3 nav-item-enter-active">
               Gallery
@@ -93,6 +132,30 @@ export default function Navbar() {
               >
                 Services
               </Link>
+
+              <div className="pl-4 -mt-2 space-y-3">
+                <Link
+                  href="/services/basic-vastu"
+                  className="text-gray-700 hover:text-primary-500 transition-all duration-300"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  ⭐ Basic Vastu
+                </Link>
+                <Link
+                  href="/services/beneficial-vastu"
+                  className="text-gray-700 hover:text-primary-500 transition-all duration-300"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  ✨ Beneficial Vastu
+                </Link>
+                <Link
+                  href="/services/super-beneficial-vastu"
+                  className="text-gray-700 hover:text-primary-500 transition-all duration-300"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  🌟 Super Beneficial Vastu
+                </Link>
+              </div>
               
               <Link 
                 href="/gallery" 
