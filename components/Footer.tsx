@@ -56,8 +56,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/process" className="hover:text-primary-400 transition-colors">
-                  Process
+                <Link href="/gallery" className="hover:text-primary-400 transition-colors">
+                  Gallery
                 </Link>
               </li>
               <li>

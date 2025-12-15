@@ -6,7 +6,6 @@ import { FaFacebookF, FaInstagram, FaYoutube, FaWhatsapp, FaLinkedin, FaPhone } 
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSocialOpen, setIsSocialOpen] = useState(false);
 
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-md">
@@ -33,84 +32,19 @@ export default function Navbar() {
               Services
             </Link>
             
-            <Link href="/about" className="nav-link-hover text-gray-700 hover:text-primary-500 font-medium transition-all duration-300 stagger-3 nav-item-enter-active">
+            <Link href="/gallery" className="nav-link-hover text-gray-700 hover:text-primary-500 font-medium transition-all duration-300 stagger-3 nav-item-enter-active">
+              Gallery
+            </Link>
+            
+            <Link href="/about" className="nav-link-hover text-gray-700 hover:text-primary-500 font-medium transition-all duration-300 stagger-4 nav-item-enter-active">
               About Us
             </Link>
             
-            {/* Social Media Dropdown */}
-            <div 
-              className="relative group stagger-6 nav-item-enter-active"
-              onMouseEnter={() => setIsSocialOpen(true)}
-              onMouseLeave={() => setIsSocialOpen(false)}
-            >
-              <button className="nav-link-hover text-gray-700 hover:text-primary-500 font-medium transition-all duration-300 flex items-center gap-1">
-                Social Media
-                <svg 
-                  className={`w-4 h-4 transition-transform duration-300 ${isSocialOpen ? 'rotate-180' : ''}`}
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              
-              {/* Social Media Dropdown Menu */}
-              <div className={`absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden transition-all duration-300 ${
-                isSocialOpen ? 'opacity-100 visible translate-y-0 scale-100' : 'opacity-0 invisible -translate-y-2 scale-95'
-              }`}>
-                <a 
-                  href="https://www.facebook.com/profile.php?id=61581478106818" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-500 transition-colors duration-200"
-                >
-                  <FaFacebookF className="w-4 h-4 text-blue-600" />
-                  Facebook
-                </a>
-                <a 
-                  href="https://www.instagram.com/acharaya.vikash_27/" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-500 transition-colors duration-200"
-                >
-                  <FaInstagram className="w-4 h-4 text-pink-500" />
-                  Instagram
-                </a>
-                <a 
-                  href="https://www.youtube.com/@Acharayavikashkumar" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-500 transition-colors duration-200"
-                >
-                  <FaYoutube className="w-4 h-4 text-red-500" />
-                  YouTube
-                </a>
-                <a 
-                  href="https://wa.me/917858992627" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-500 transition-colors duration-200"
-                >
-                  <FaWhatsapp className="w-4 h-4 text-green-500" />
-                  WhatsApp
-                </a>
-                <a 
-                  href="https://linkedin.com" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-500 transition-colors duration-200"
-                >
-                  <FaLinkedin className="w-4 h-4 text-blue-700" />
-                  LinkedIn
-                </a>
-              </div>
-            </div>
-            
-            <Link href="/faq" className="nav-link-hover text-gray-700 hover:text-primary-500 font-medium transition-all duration-300 stagger-4 nav-item-enter-active">
+            <Link href="/faq" className="nav-link-hover text-gray-700 hover:text-primary-500 font-medium transition-all duration-300 stagger-5 nav-item-enter-active">
               FAQ
             </Link>
-            <Link href="/contact" className="btn-primary shimmer pulse-glow inline-flex items-center gap-2 stagger-7 transform hover:scale-105 transition-all duration-300">
+            
+            <Link href="/contact" className="btn-primary shimmer pulse-glow inline-flex items-center gap-2 stagger-6 transform hover:scale-105 transition-all duration-300">
               <FaPhone className="w-4 h-4" />
               Contact Us
             </Link>
@@ -161,8 +95,16 @@ export default function Navbar() {
               </Link>
               
               <Link 
-                href="/faq" 
+                href="/gallery" 
                 className="nav-link-hover text-gray-700 hover:text-primary-500 font-medium transition-all duration-300 stagger-3"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Gallery
+              </Link>
+              
+              <Link 
+                href="/faq" 
+                className="nav-link-hover text-gray-700 hover:text-primary-500 font-medium transition-all duration-300 stagger-4"
                 onClick={() => setIsMenuOpen(false)}
               >
                 FAQ
@@ -176,77 +118,51 @@ export default function Navbar() {
                 About
               </Link>
               
-              {/* Mobile Social Media */}
-              <div className="stagger-6">
-                <button 
-                  className="w-full text-left nav-link-hover text-gray-700 hover:text-primary-500 font-medium transition-all duration-300 flex items-center justify-between"
-                  onClick={() => setIsSocialOpen(!isSocialOpen)}
-                >
-                  Social Media
-                  <svg 
-                    className={`w-4 h-4 transition-transform duration-300 ${isSocialOpen ? 'rotate-180' : ''}`}
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
+              {/* Mobile Social Media Icons */}
+              <div className="stagger-6 pt-4 border-t border-gray-200">
+                <p className="text-sm text-gray-600 mb-3 font-semibold">Follow Us</p>
+                <div className="flex gap-3">
+                  <a 
+                    href="https://www.facebook.com/profile.php?id=61581478106818" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-md"
+                    aria-label="Facebook"
+                    onClick={() => setIsMenuOpen(false)}
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                
-                {isSocialOpen && (
-                  <div className="ml-4 mt-2 space-y-2 animate-fadeIn">
-                    <a 
-                      href="https://www.facebook.com/profile.php?id=61581478106818" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-3 text-gray-600 hover:text-primary-500 transition-all duration-300 py-2 hover:translate-x-1"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      <FaFacebookF className="w-4 h-4 text-blue-600" />
-                      Facebook
-                    </a>
-                    <a 
-                      href="https://www.instagram.com/acharaya.vikash_27/" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-3 text-gray-600 hover:text-primary-500 transition-all duration-300 py-2 hover:translate-x-1"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      <FaInstagram className="w-4 h-4 text-pink-500" />
-                      Instagram
-                    </a>
-                    <a 
-                      href="https://www.youtube.com/@Acharayavikashkumar" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-3 text-gray-600 hover:text-primary-500 transition-all duration-300 py-2 hover:translate-x-1"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      <FaYoutube className="w-4 h-4 text-red-500" />
-                      YouTube
-                    </a>
-                    <a 
-                      href="https://wa.me/" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-3 text-gray-600 hover:text-primary-500 transition-all duration-300 py-2 hover:translate-x-1"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      <FaWhatsapp className="w-4 h-4 text-green-500" />
-                      WhatsApp
-                    </a>
-                    <a 
-                      href="https://linkedin.com" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-3 text-gray-600 hover:text-primary-500 transition-all duration-300 py-2 hover:translate-x-1"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      <FaLinkedin className="w-4 h-4 text-blue-700" />
-                      LinkedIn
-                    </a>
-                  </div>
-                )}
+                    <FaFacebookF className="w-4 h-4" />
+                  </a>
+                  <a 
+                    href="https://www.instagram.com/acharaya.vikash_27/" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-md"
+                    aria-label="Instagram"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <FaInstagram className="w-4 h-4" />
+                  </a>
+                  <a 
+                    href="https://www.youtube.com/@Acharayavikashkumar" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-red-600 hover:bg-red-700 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-md"
+                    aria-label="YouTube"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <FaYoutube className="w-4 h-4" />
+                  </a>
+                  <a 
+                    href="https://wa.me/917858992627" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-green-500 hover:bg-green-600 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-md"
+                    aria-label="WhatsApp"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <FaWhatsapp className="w-4 h-4" />
+                  </a>
+                </div>
               </div>
               
               <Link 
