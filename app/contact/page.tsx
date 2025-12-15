@@ -105,8 +105,152 @@ export default function ContactPage() {
 
       <WaveDivider color="white" />
 
+      {/* Consultation Hours Section */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="heading-lg mb-4">Consultation <span className="text-gradient">Hours</span></h2>
+            <p className="text-body max-w-2xl mx-auto">
+              We're available to serve you at convenient times throughout the week
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            {consultationHours.map((schedule, index) => (
+              <div key={index} className="card glass card-hover-glow text-center">
+                <div className="text-4xl mb-4 float">{schedule.icon}</div>
+                <h3 className="font-bold text-lg mb-3 text-gradient">{schedule.title}</h3>
+                <div className="space-y-2 text-sm text-gray-700">
+                  <p className="font-semibold">{schedule.days}</p>
+                  <p>{schedule.hours}</p>
+                </div>
+                {schedule.note && (
+                  <p className="mt-3 text-xs text-primary-600 font-medium">{schedule.note}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <WaveDivider color="gray" flip />
+
+      {/* What to Expect Section */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="heading-lg mb-4">What to <span className="text-gradient">Expect</span></h2>
+            <p className="text-body max-w-2xl mx-auto">
+              Your consultation journey from first contact to implementation
+            </p>
+          </div>
+          <div className="max-w-4xl mx-auto space-y-6">
+            {consultationProcess.map((step, index) => (
+              <div key={index} className="card glass card-hover-expand flex gap-6 items-start">
+                <div className="flex-shrink-0 w-12 h-12 gradient-primary rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                  {index + 1}
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-bold text-xl mb-2 text-gradient">{step.title}</h3>
+                  <p className="text-gray-600 mb-3">{step.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {step.details.map((detail, idx) => (
+                      <span key={idx} className="text-xs bg-primary-50 text-primary-700 px-3 py-1 rounded-full">
+                        {detail}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="flex-shrink-0 text-3xl float">{step.icon}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <WaveDivider color="white" />
+
+      {/* Preparation Guidelines Section */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="heading-lg mb-4">Preparation <span className="text-gradient">Guidelines</span></h2>
+            <p className="text-body max-w-2xl mx-auto">
+              Get the most out of your consultation by preparing these items
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="card glass card-hover-glow">
+              <h3 className="font-bold text-xl mb-4 text-gradient flex items-center gap-3">
+                <span className="text-3xl">📋</span>
+                Required Information
+              </h3>
+              <ul className="space-y-3">
+                {requiredInfo.map((item, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div>
+                      <div className="font-semibold text-gray-800">{item.title}</div>
+                      <div className="text-sm text-gray-600">{item.description}</div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="card glass card-hover-glow">
+              <h3 className="font-bold text-xl mb-4 text-gradient flex items-center gap-3">
+                <span className="text-3xl">💡</span>
+                Helpful Tips
+              </h3>
+              <ul className="space-y-3">
+                {helpfulTips.map((tip, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-secondary-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    <div>
+                      <div className="font-semibold text-gray-800">{tip.title}</div>
+                      <div className="text-sm text-gray-600">{tip.description}</div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <WaveDivider color="gray" flip />
+
+      {/* Alternative Contact Methods Section */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="heading-lg mb-4">Other Ways to <span className="text-gradient">Connect</span></h2>
+            <p className="text-body max-w-2xl mx-auto">
+              Choose your preferred method of communication
+            </p>
+          </div>
+          <div className="grid md:grid-cols-4 gap-6">
+            {contactMethods.map((method, index) => (
+              <div key={index} className="card glass card-hover-3d text-center">
+                <div className="text-5xl mb-4 float">{method.icon}</div>
+                <h3 className="font-bold text-lg mb-2 text-gradient">{method.title}</h3>
+                <p className="text-sm text-gray-600 mb-3">{method.description}</p>
+                <a href={method.link} className="text-primary-500 hover:text-primary-600 font-semibold text-sm">
+                  {method.action} →
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <WaveDivider color="white" />
+
       {/* Contact Form and Info Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid lg:grid-cols-5 gap-12">
             {/* Contact Form */}
@@ -179,7 +323,7 @@ export default function ContactPage() {
                         className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors ${
                           errors.phone ? 'border-red-500' : 'border-gray-300'
                         }`}
-                        placeholder="+1 (555) 123-4567"
+                        placeholder="+91 9599668544"
                       />
                       {errors.phone && (
                         <p className="mt-1 text-sm text-red-600">{errors.phone}</p>
@@ -352,7 +496,7 @@ export default function ContactPage() {
                   Not sure where to start? Book a complimentary 15-minute consultation 
                   to discuss your needs and get personalized recommendations.
                 </p>
-                <a href="tel:+15551234567" className="btn-primary w-full text-center block">
+                <a href="tel:+919599668544" className="btn-primary w-full text-center block">
                   Call Now
                 </a>
               </div>
@@ -409,3 +553,144 @@ export default function ContactPage() {
     </div>
   );
 }
+
+const consultationHours = [
+  {
+    icon: "📅",
+    title: "Weekdays",
+    days: "Monday - Friday",
+    hours: "9:00 AM - 6:00 PM",
+    note: "Same day appointments available"
+  },
+  {
+    icon: "🌅",
+    title: "Weekends",
+    days: "Saturday - Sunday",
+    hours: "10:00 AM - 4:00 PM",
+    note: "By appointment only"
+  },
+  {
+    icon: "🌙",
+    title: "Emergency",
+    days: "24/7 Available",
+    hours: "Contact via WhatsApp",
+    note: "For urgent consultations"
+  }
+];
+
+const consultationProcess = [
+  {
+    icon: "📞",
+    title: "Initial Contact",
+    description: "Reach out via form, phone, or WhatsApp. We'll respond within 2-4 hours during business hours.",
+    details: ["Quick response", "Friendly team", "Initial assessment"]
+  },
+  {
+    icon: "🗓️",
+    title: "Schedule Consultation",
+    description: "Book a convenient time for your consultation. We offer both in-person and virtual options.",
+    details: ["Flexible timing", "Online/offline options", "Calendar integration"]
+  },
+  {
+    icon: "🔍",
+    title: "Information Gathering",
+    description: "We'll collect necessary details about your space, concerns, and goals before the consultation.",
+    details: ["Property details", "Floor plans", "Current issues"]
+  },
+  {
+    icon: "💬",
+    title: "Consultation Session",
+    description: "Detailed discussion of your space, requirements, and Vastu analysis with our expert consultant.",
+    details: ["45-60 minutes", "Expert guidance", "Q&A session"]
+  },
+  {
+    icon: "📊",
+    title: "Detailed Report",
+    description: "Receive a comprehensive written report with analysis, recommendations, and implementation guide.",
+    details: ["PDF report", "Diagrams included", "Action plan"]
+  },
+  {
+    icon: "🤝",
+    title: "Follow-up Support",
+    description: "Ongoing support during implementation with follow-up consultations as needed.",
+    details: ["Email support", "Phone guidance", "Progress check-ins"]
+  }
+];
+
+const requiredInfo = [
+  {
+    title: "Property Address & Direction",
+    description: "Complete address and the direction your property/entrance faces"
+  },
+  {
+    title: "Floor Plan or Layout",
+    description: "Sketches, blueprints, or photos showing room arrangements"
+  },
+  {
+    title: "Property Age & Construction Details",
+    description: "When it was built and any major renovations"
+  },
+  {
+    title: "Current Concerns",
+    description: "Specific issues you're experiencing (health, finance, relationships, etc.)"
+  },
+  {
+    title: "Family/Business Information",
+    description: "Number of occupants, professions, and specific requirements"
+  }
+];
+
+const helpfulTips = [
+  {
+    title: "Take Photos",
+    description: "Capture current state of all rooms, entrance, and surroundings"
+  },
+  {
+    title: "Note Problem Areas",
+    description: "List specific rooms or areas where you feel uncomfortable"
+  },
+  {
+    title: "Budget Planning",
+    description: "Have a rough idea of your budget for recommended changes"
+  },
+  {
+    title: "Be Open-Minded",
+    description: "Some recommendations may seem unconventional but are based on proven principles"
+  },
+  {
+    title: "Ask Questions",
+    description: "Write down any questions beforehand - no question is too small"
+  }
+];
+
+const contactMethods = [
+  {
+    icon: "📱",
+    title: "WhatsApp",
+    description: "Quick responses and easy file sharing",
+    link: "https://wa.me/919876543210",
+    action: "Chat Now"
+  },
+  {
+    icon: "📧",
+    title: "Email",
+    description: "Detailed inquiries and document sharing",
+    link: "mailto:info@vastuinside.com",
+    action: "Send Email"
+  },
+  {
+    icon: "☎️",
+    title: "Phone Call",
+    description: "Direct conversation with our team",
+    link: "tel:+919876543210",
+    action: "Call Us"
+  },
+  {
+    icon: "💬",
+    title: "Live Chat",
+    description: "Instant messaging during business hours",
+    link: "#",
+    action: "Start Chat"
+  }
+];
+
