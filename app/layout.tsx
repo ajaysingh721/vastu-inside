@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageTransition from "@/components/PageTransition";
 import { FaWhatsapp } from "react-icons/fa";
 
 const poppins = Poppins({
@@ -41,7 +42,9 @@ export default function RootLayout({
       <body className={`${poppins.className} antialiased`}>
         <Navbar />
         <main className="min-h-screen">
-          {children}
+          <PageTransition>
+            {children}
+          </PageTransition>
         </main>
         <Footer />
         
