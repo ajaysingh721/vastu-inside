@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { FaFacebookF, FaInstagram, FaYoutube, FaWhatsapp, FaLinkedin } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaYoutube, FaWhatsapp, FaLinkedin, FaPhone } from "react-icons/fa";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,6 +31,10 @@ export default function Navbar() {
             
             <Link href="/services" className="text-gray-700 hover:text-primary-500 font-medium transition-colors">
               Services
+            </Link>
+            
+            <Link href="/process" className="text-gray-700 hover:text-primary-500 font-medium transition-colors">
+              Process
             </Link>
             
             <Link href="/about" className="text-gray-700 hover:text-primary-500 font-medium transition-colors">
@@ -107,7 +111,8 @@ export default function Navbar() {
               </div>
             </div>
             
-            <Link href="/contact" className="btn-primary shimmer pulse-glow">
+            <Link href="/contact" className="btn-primary shimmer pulse-glow inline-flex items-center gap-2">
+              <FaPhone className="w-4 h-4" />
               Contact Us
             </Link>
           </div>
@@ -154,6 +159,14 @@ export default function Navbar() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Services
+              </Link>
+              
+              <Link 
+                href="/process" 
+                className="text-gray-700 hover:text-primary-500 font-medium transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Process
               </Link>
               
               <Link 
@@ -242,6 +255,7 @@ export default function Navbar() {
                 className="btn-primary inline-block text-center shimmer pulse-glow"
                 onClick={() => setIsMenuOpen(false)}
               >
+                <FaPhone className="inline w-4 h-4 mr-2" />
                 Contact Us
               </Link>
             </div>

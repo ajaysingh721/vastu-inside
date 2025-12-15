@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { FormEvent } from "react";
+import { FaPaperPlane } from "react-icons/fa";
 import WaveDivider from "@/components/WaveDivider";
 
 export default function ContactPage() {
@@ -259,8 +260,9 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full btn-primary shimmer disabled:opacity-50 disabled:cursor-not-allowed transition-opacity"
+                    className="w-full btn-primary shimmer disabled:opacity-50 disabled:cursor-not-allowed transition-opacity inline-flex items-center justify-center gap-2"
                   >
+                    <FaPaperPlane className="w-4 h-4" />
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                   </button>
                 </form>

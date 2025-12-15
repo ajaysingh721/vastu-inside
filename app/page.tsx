@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FaCalendarAlt, FaTools, FaArrowRight } from "react-icons/fa";
 import WaveDivider from "@/components/WaveDivider";
 import CountUp from "@/components/CountUp";
 
@@ -24,10 +25,12 @@ export default function Home() {
                 We blend ancient wisdom with modern living to create spaces that nurture success and happiness.
               </p>
               <div className="flex flex-wrap gap-4 animate-slide-in-delay-2">
-                <Link href="/contact" className="btn-primary shimmer pulse-glow">
+                <Link href="/contact" className="btn-primary shimmer pulse-glow inline-flex items-center gap-2">
+                  <FaCalendarAlt className="w-4 h-4" />
                   Book Consultation
                 </Link>
-                <Link href="/services" className="btn-outline hover-lift">
+                <Link href="/services" className="btn-outline hover-lift inline-flex items-center gap-2">
+                  <FaTools className="w-4 h-4" />
                   Our Services
                 </Link>
               </div>
@@ -91,8 +94,9 @@ export default function Home() {
                 <div className="text-4xl mb-4 float">{service.icon}</div>
                 <h3 className="text-xl font-bold mb-3">{service.title}</h3>
                 <p className="text-gray-600 mb-4">{service.description}</p>
-                <Link href="/services" className="text-gradient font-semibold inline-flex items-center hover:translate-x-1 transition-transform">
-                  Learn more →
+                <Link href="/services" className="text-gradient font-semibold inline-flex items-center gap-1 hover:translate-x-1 transition-transform">
+                  Learn more
+                  <FaArrowRight className="w-3 h-3" />
                 </Link>
               </div>
             ))}
@@ -199,7 +203,8 @@ export default function Home() {
           <p className="text-xl mb-8 max-w-2xl mx-auto text-white/90 animate-fade-in-delay">
             Book your consultation today and start your journey towards a harmonious living environment.
           </p>
-          <Link href="/contact" className="inline-block bg-white text-primary-500 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 animate-slide-in-delay-2 shimmer">
+          <Link href="/contact" className="inline-block bg-white text-primary-500 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 animate-slide-in-delay-2 shimmer inline-flex items-center gap-2">
+            <FaCalendarAlt className="w-5 h-5" />
             Schedule Your Consultation
           </Link>
         </div>

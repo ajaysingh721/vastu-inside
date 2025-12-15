@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { FaCalendarAlt } from "react-icons/fa";
 import WaveDivider from "@/components/WaveDivider";
 
 export const metadata: Metadata = {
@@ -181,7 +182,8 @@ export default function AboutPage() {
           <p className="text-body max-w-2xl mx-auto mb-8">
             Join hundreds of satisfied clients who have transformed their spaces with Vastu Inside.
           </p>
-          <Link href="/contact" className="btn-primary">
+          <Link href="/contact" className="btn-primary inline-flex items-center gap-2">
+            <FaCalendarAlt className="w-4 h-4" />
             Schedule Your Consultation
           </Link>
         </div>

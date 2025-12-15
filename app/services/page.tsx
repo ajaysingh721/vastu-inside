@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { FaRocket } from "react-icons/fa";
 import WaveDivider from "@/components/WaveDivider";
 
 export const metadata: Metadata = {
@@ -52,7 +53,8 @@ export default function ServicesPage() {
                       </div>
                     ))}
                   </div>
-                  <Link href="/contact" className="btn-primary shimmer pulse-glow">
+                  <Link href="/contact" className="btn-primary shimmer pulse-glow inline-flex items-center gap-2">
+                    <FaRocket className="w-4 h-4" />
                     Get Started
                   </Link>
                 </div>
@@ -106,7 +108,8 @@ export default function ServicesPage() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/contact" className={pkg.featured ? 'btn-primary w-full text-center block' : 'btn-outline w-full text-center block'}>
+                <Link href="/contact" className={`${pkg.featured ? 'btn-primary w-full text-center block' : 'btn-outline w-full text-center block'} inline-flex items-center justify-center gap-2`}>
+                  <FaRocket className="w-4 h-4" />
                   Choose Plan
                 </Link>
               </div>
