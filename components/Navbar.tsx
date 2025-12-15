@@ -5,6 +5,7 @@ import { useState } from "react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-md">
@@ -23,9 +24,50 @@ export default function Navbar() {
             <Link href="/" className="text-gray-700 hover:text-primary-500 font-medium transition-colors">
               Home
             </Link>
-            <Link href="/services" className="text-gray-700 hover:text-primary-500 font-medium transition-colors">
-              Services
-            </Link>
+            
+            {/* Services Dropdown */}
+            <div 
+              className="relative group"
+              onMouseEnter={() => setIsServicesOpen(true)}
+              onMouseLeave={() => setIsServicesOpen(false)}
+            >
+              <button className="text-gray-700 hover:text-primary-500 font-medium transition-colors flex items-center gap-1">
+                Services
+                <svg 
+                  className={`w-4 h-4 transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`}
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {/* Dropdown Menu */}
+              <div className={`absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden transition-all duration-300 ${
+                isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
+              }`}>
+                <Link 
+                  href="/services/vastu" 
+                  className="block px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-500 transition-colors duration-200"
+                >
+                  Vastu
+                </Link>
+                <Link 
+                  href="/services/interior" 
+                  className="block px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-500 transition-colors duration-200"
+                >
+                  Interior
+                </Link>
+                <Link 
+                  href="/services/construction" 
+                  className="block px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-500 transition-colors duration-200"
+                >
+                  Construction
+                </Link>
+              </div>
+            </div>
+            
             <Link href="/about" className="text-gray-700 hover:text-primary-500 font-medium transition-colors">
               About
             </Link>
@@ -72,13 +114,51 @@ export default function Navbar() {
               >
                 Home
               </Link>
-              <Link 
-                href="/services" 
-                className="text-gray-700 hover:text-primary-500 font-medium transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Services
-              </Link>
+              
+              {/* Mobile Services Submenu */}
+              <div>
+                <button 
+                  className="w-full text-left text-gray-700 hover:text-primary-500 font-medium transition-colors flex items-center justify-between"
+                  onClick={() => setIsServicesOpen(!isServicesOpen)}
+                >
+                  Services
+                  <svg 
+                    className={`w-4 h-4 transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`}
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                
+                {isServicesOpen && (
+                  <div className="ml-4 mt-2 space-y-2 animate-fadeIn">
+                    <Link 
+                      href="/services/vastu" 
+                      className="block text-gray-600 hover:text-primary-500 transition-colors py-2"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      → Vastu
+                    </Link>
+                    <Link 
+                      href="/services/interior" 
+                      className="block text-gray-600 hover:text-primary-500 transition-colors py-2"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      → Interior
+                    </Link>
+                    <Link 
+                      href="/services/construction" 
+                      className="block text-gray-600 hover:text-primary-500 transition-colors py-2"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      → Construction
+                    </Link>
+                  </div>
+                )}
+              </div>
+              
               <Link 
                 href="/about" 
                 className="text-gray-700 hover:text-primary-500 font-medium transition-colors"
