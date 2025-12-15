@@ -1,8 +1,16 @@
 import type { Metadata, Viewport } from "next";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { FaWhatsapp } from "react-icons/fa";
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  display: 'swap',
+});
+
 
 export const metadata: Metadata = {
   title: "Vastu Inside - Professional Vastu Consultation Services",
@@ -30,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">
+      <body className={`${poppins.className} antialiased`}>
         <Navbar />
         <main className="min-h-screen">
           {children}

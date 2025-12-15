@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import WaveDivider from "@/components/WaveDivider";
+import CountUp from "@/components/CountUp";
 
 export default function Home() {
   return (
@@ -32,15 +33,21 @@ export default function Home() {
               </div>
               <div className="flex items-center gap-8 pt-4 animate-slide-in-delay-3">
                 <div className="glass p-4 rounded-xl hover-lift">
-                  <div className="text-3xl font-bold text-gradient">500+</div>
+                  <div className="text-3xl font-bold text-gradient">
+                    <CountUp end={500} suffix="+" />
+                  </div>
                   <div className="text-sm text-gray-700">Happy Clients</div>
                 </div>
                 <div className="glass p-4 rounded-xl hover-lift">
-                  <div className="text-3xl font-bold text-gradient">15+</div>
+                  <div className="text-3xl font-bold text-gradient">
+                    <CountUp end={15} suffix="+" />
+                  </div>
                   <div className="text-sm text-gray-700">Years Experience</div>
                 </div>
                 <div className="glass p-4 rounded-xl hover-lift">
-                  <div className="text-3xl font-bold text-gradient">98%</div>
+                  <div className="text-3xl font-bold text-gradient">
+                    <CountUp end={98} suffix="%" />
+                  </div>
                   <div className="text-sm text-gray-700">Satisfaction Rate</div>
                 </div>
               </div>

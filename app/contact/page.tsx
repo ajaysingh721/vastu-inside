@@ -13,11 +13,52 @@ export default function ContactPage() {
     propertyType: "",
     message: ""
   });
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState("");
 
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = "Name must be at least 2 characters";
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
+    if (formData.phone && !/^[+]?[(]?[0-9]{1,4}[)]?[-\s\.]?[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,9}$/.test(formData.phone)) {
+      newErrors.phone = "Please enter a valid phone number";
+    }
+
+    if (!formData.serviceType) {
+      newErrors.serviceType = "Please select a service type";
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = "Message must be at least 10 characters";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setErrors({});
+    
+    if (!validateForm()) {
+      return;
+    }
+    
     setIsSubmitting(true);
     
     // TODO: Implement actual form submission to backend API
@@ -33,6 +74,9 @@ export default function ContactPage() {
         propertyType: "",
         message: ""
       });
+      
+      // Clear success message after 5 seconds
+      setTimeout(() => setSubmitMessage(""), 5000);
     }, 1000);
   };
 
@@ -88,9 +132,14 @@ export default function ContactPage() {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors ${
+                          errors.name ? 'border-red-500' : 'border-gray-300'
+                        }`}
                         placeholder="John Doe"
                       />
+                      {errors.name && (
+                        <p className="mt-1 text-sm text-red-600">{errors.name}</p>
+                      )}
                     </div>
 
                     <div>
@@ -104,9 +153,14 @@ export default function ContactPage() {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors ${
+                          errors.email ? 'border-red-500' : 'border-gray-300'
+                        }`}
                         placeholder="john@example.com"
                       />
+                      {errors.email && (
+                        <p className="mt-1 text-sm text-red-600">{errors.email}</p>
+                      )}
                     </div>
                   </div>
 
@@ -121,9 +175,14 @@ export default function ContactPage() {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors ${
+                          errors.phone ? 'border-red-500' : 'border-gray-300'
+                        }`}
                         placeholder="+1 (555) 123-4567"
                       />
+                      {errors.phone && (
+                        <p className="mt-1 text-sm text-red-600">{errors.phone}</p>
+                      )}
                     </div>
 
                     <div>
@@ -136,7 +195,9 @@ export default function ContactPage() {
                         required
                         value={formData.serviceType}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors ${
+                          errors.serviceType ? 'border-red-500' : 'border-gray-300'
+                        }`}
                       >
                         <option value="">Select a service</option>
                         <option value="residential">Residential Vastu</option>
@@ -146,6 +207,9 @@ export default function ContactPage() {
                         <option value="site-analysis">Site Analysis</option>
                         <option value="corporate">Corporate Consulting</option>
                       </select>
+                      {errors.serviceType && (
+                        <p className="mt-1 text-sm text-red-600">{errors.serviceType}</p>
+                      )}
                     </div>
                   </div>
 
@@ -182,8 +246,23 @@ export default function ContactPage() {
                       value={formData.message}
                       onChange={handleChange}
                       rows={6}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors resize-none ${
+                        errors.message ? 'border-red-500' : 'border-gray-300'
+                      }`}
                       placeholder="Tell us about your project and requirements..."
+                    ></textarea>
+                    {errors.message && (
+                      <p className="mt-1 text-sm text-red-600">{errors.message}</p>
+                    )}
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full btn-primary shimmer disabled:opacity-50 disabled:cursor-not-allowed transition-opacity"
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                  </button>
                     ></textarea>
                   </div>
 
