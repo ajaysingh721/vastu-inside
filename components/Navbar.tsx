@@ -37,13 +37,14 @@ export default function Navbar() {
               Process
             </Link>
             
-            <Link href="/about" className="nav-link-hover text-gray-700 hover:text-primary-500 font-medium transition-all duration-300 stagger-4 nav-item-enter-active">
+            
+            <Link href="/about" className="nav-link-hover text-gray-700 hover:text-primary-500 font-medium transition-all duration-300 stagger-5 nav-item-enter-active">
               About Us
             </Link>
             
             {/* Social Media Dropdown */}
             <div 
-              className="relative group stagger-5 nav-item-enter-active"
+              className="relative group stagger-6 nav-item-enter-active"
               onMouseEnter={() => setIsSocialOpen(true)}
               onMouseLeave={() => setIsSocialOpen(false)}
             >
@@ -111,7 +112,10 @@ export default function Navbar() {
               </div>
             </div>
             
-            <Link href="/contact" className="btn-primary shimmer pulse-glow inline-flex items-center gap-2 stagger-6 transform hover:scale-105 transition-all duration-300">
+            <Link href="/faq" className="nav-link-hover text-gray-700 hover:text-primary-500 font-medium transition-all duration-300 stagger-4 nav-item-enter-active">
+              FAQ
+            </Link>
+            <Link href="/contact" className="btn-primary shimmer pulse-glow inline-flex items-center gap-2 stagger-7 transform hover:scale-105 transition-all duration-300">
               <FaPhone className="w-4 h-4" />
               Contact Us
             </Link>
@@ -170,15 +174,23 @@ export default function Navbar() {
               </Link>
               
               <Link 
-                href="/about" 
+                href="/faq" 
                 className="nav-link-hover text-gray-700 hover:text-primary-500 font-medium transition-all duration-300 stagger-4"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                FAQ
+              </Link>
+              
+              <Link 
+                href="/about" 
+                className="nav-link-hover text-gray-700 hover:text-primary-500 font-medium transition-all duration-300 stagger-5"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About
               </Link>
               
               {/* Mobile Social Media */}
-              <div className="stagger-5">
+              <div className="stagger-6">
                 <button 
                   className="w-full text-left nav-link-hover text-gray-700 hover:text-primary-500 font-medium transition-all duration-300 flex items-center justify-between"
                   onClick={() => setIsSocialOpen(!isSocialOpen)}
@@ -252,7 +264,7 @@ export default function Navbar() {
               
               <Link 
                 href="/contact" 
-                className="btn-primary inline-block text-center shimmer pulse-glow stagger-6 transform hover:scale-105 transition-all duration-300"
+                className="btn-primary inline-block text-center shimmer pulse-glow stagger-7 transform hover:scale-105 transition-all duration-300"
                 onClick={() => setIsMenuOpen(false)}
               >
                 <FaPhone className="inline w-4 h-4 mr-2" />

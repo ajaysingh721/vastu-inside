@@ -19,10 +19,22 @@ export const metadata: Metadata = {
   keywords: ["vastu", "vastu shastra", "consultation", "feng shui", "home design", "architecture"],
   authors: [{ name: "Vastu Inside" }],
   manifest: "/manifest.json",
-  icons: {
-    icon: "/icons/icon-192x192.png",
-    apple: "/icons/icon-192x192.png",
-  },
+  icons: [
+    {
+      rel: 'icon',
+      type: 'image/svg+xml',
+      url: '/favicon.svg',
+    },
+    {
+      rel: 'icon',
+      type: 'image/x-icon',
+      url: '/favicon.ico',
+    },
+    {
+      rel: 'apple-touch-icon',
+      url: '/icons/icon-192x192.png',
+    },
+  ],
 };
 
 export const viewport: Viewport = {
