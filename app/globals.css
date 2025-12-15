@@ -59,4 +59,193 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Glassmorphism Effects */
+  .glass {
+    @apply bg-white/80 backdrop-blur-lg border border-white/20 shadow-xl;
+  }
+
+  .glass-dark {
+    @apply bg-gray-900/80 backdrop-blur-lg border border-white/10 shadow-xl;
+  }
+
+  .glass-primary {
+    @apply bg-primary-500/10 backdrop-blur-lg border border-primary-500/20 shadow-xl;
+  }
+
+  /* Advanced Gradients */
+  .gradient-primary {
+    background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+  }
+
+  .gradient-secondary {
+    background: linear-gradient(135deg, #ec4899 0%, #f59e0b 100%);
+  }
+
+  .gradient-mesh {
+    background: 
+      radial-gradient(at 27% 37%, hsla(265, 89%, 78%, 1) 0px, transparent 50%),
+      radial-gradient(at 97% 21%, hsla(231, 77%, 90%, 1) 0px, transparent 50%),
+      radial-gradient(at 52% 99%, hsla(338, 87%, 87%, 1) 0px, transparent 50%),
+      radial-gradient(at 10% 29%, hsla(242, 86%, 85%, 1) 0px, transparent 50%),
+      radial-gradient(at 97% 96%, hsla(27, 87%, 84%, 1) 0px, transparent 50%),
+      radial-gradient(at 33% 50%, hsla(222, 85%, 88%, 1) 0px, transparent 50%),
+      radial-gradient(at 79% 53%, hsla(343, 79%, 88%, 1) 0px, transparent 50%);
+  }
+
+  /* Floating Animations */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .float-slow {
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .float-delayed {
+    animation: float 6s ease-in-out 2s infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  /* Pulse Glow Animation */
+  .pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(139, 92, 246, 0.8);
+    }
+  }
+
+  /* Gradient Text */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500;
+  }
+
+  /* Particle Background */
+  .particles {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .particles::before,
+  .particles::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    animation: particle-float 10s ease-in-out infinite;
+  }
+
+  .particles::before {
+    background: linear-gradient(135deg, #8b5cf6, #ec4899);
+    top: -150px;
+    left: -150px;
+    animation-delay: 0s;
+  }
+
+  .particles::after {
+    background: linear-gradient(135deg, #6366f1, #f59e0b);
+    bottom: -150px;
+    right: -150px;
+    animation-delay: 5s;
+  }
+
+  @keyframes particle-float {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(30px, -30px) scale(1.1);
+    }
+    66% {
+      transform: translate(-30px, 30px) scale(0.9);
+    }
+  }
+
+  /* Shimmer Effect */
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 3s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+
+  /* Wave Animation */
+  .wave {
+    animation: wave 20s linear infinite;
+  }
+
+  @keyframes wave {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Hover Lift Effect */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Backdrop Blur Variations */
+  .backdrop-blur-xs {
+    backdrop-filter: blur(2px);
+  }
+
+  .backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+  }
+
+  .backdrop-blur-base {
+    backdrop-filter: blur(8px);
+  }
+
+  .backdrop-blur-lg {
+    backdrop-filter: blur(16px);
+  }
+
+  .backdrop-blur-xl {
+    backdrop-filter: blur(24px);
+  }
 }
