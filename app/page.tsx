@@ -130,13 +130,24 @@ export default function Home() {
             {testimonials.map((testimonial, index) => (
               <div key={index} className="card">
                 <div className="flex items-center mb-4">
+                  <Image
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    width={48}
+                    height={48}
+                    className="w-12 h-12 rounded-full mr-4 object-cover"
+                  />
+                  <div>
+                    <div className="font-semibold">{testimonial.name}</div>
+                    <div className="text-sm text-gray-500">{testimonial.role}</div>
+                  </div>
+                </div>
+                <div className="flex items-center mb-4">
                   {[...Array(5)].map((_, i) => (
                     <span key={i} className="text-yellow-400 text-xl">★</span>
                   ))}
                 </div>
                 <p className="text-gray-600 mb-4 italic">"{testimonial.text}"</p>
-                <div className="font-semibold">{testimonial.name}</div>
-                <div className="text-sm text-gray-500">{testimonial.role}</div>
               </div>
             ))}
           </div>
@@ -219,16 +230,19 @@ const testimonials = [
   {
     text: "The Vastu consultation transformed our home. We've experienced better harmony and prosperity since implementing the recommendations.",
     name: "Rajesh Kumar",
-    role: "Homeowner"
+    role: "Homeowner",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face"
   },
   {
     text: "Professional, knowledgeable, and practical advice. Our office productivity has significantly improved after the Vastu corrections.",
     name: "Priya Sharma",
-    role: "Business Owner"
+    role: "Business Owner",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face"
   },
   {
     text: "Excellent service! The detailed report and ongoing support made the entire process smooth and effective.",
     name: "Amit Patel",
-    role: "Architect"
+    role: "Architect",
+    image: "https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=150&h=150&fit=crop&crop=face"
   }
 ];
