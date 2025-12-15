@@ -60,26 +60,28 @@ export default function FloatingSocialMedia() {
   return (
     <div className="fixed bottom-8 right-8 z-40" ref={containerRef}>
       <div 
-        className="flex flex-row-reverse items-center gap-2 bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-2xl border-2 border-primary-500 transition-all duration-500 ease-in-out"
+        className={`flex flex-row-reverse items-center bg-white/90 backdrop-blur-sm rounded-full shadow-2xl border-2 border-primary-500 transition-all duration-500 ease-in-out ${
+          isExpanded ? "gap-2 p-2" : "gap-0 p-1"
+        }`}
         onMouseEnter={handleInteraction}
         onMouseMove={handleInteraction}
       >
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="group relative w-12 h-12 rounded-full bg-primary-500 hover:bg-primary-600 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl"
+          className="group relative w-12 h-12 flex-shrink-0 rounded-full bg-primary-500 hover:bg-primary-600 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl"
           aria-label={isExpanded ? "Collapse social media" : "Expand social media"}
         >
           <HiUserGroup className={`w-6 h-6 transition-all duration-500 ${isExpanded ? 'scale-110 rotate-12' : 'rotate-0'}`} />
         </button>
         
-        <div className={`flex flex-row-reverse items-center gap-2 overflow-hidden transition-all duration-500 ease-in-out ${
+        <div className={`flex flex-row-reverse items-center gap-2 overflow-x-hidden overflow-y-visible transition-all duration-500 ease-in-out ${
           isExpanded ? 'max-w-[200px] opacity-100' : 'max-w-0 opacity-0'
         }`}>
           <a 
             href="https://wa.me/917858992627" 
             target="_blank"
             rel="noopener noreferrer"
-            className={`group relative w-10 h-10 rounded-full bg-green-500 hover:bg-green-600 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl ${
+            className={`group relative w-10 h-10 flex-shrink-0 rounded-full bg-green-500 hover:bg-green-600 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl ${
               isExpanded ? 'scale-100 translate-x-0' : 'scale-0 translate-x-4'
             }`}
             style={{ transitionDelay: '100ms' }}
@@ -87,7 +89,7 @@ export default function FloatingSocialMedia() {
             onClick={handleInteraction}
           >
             <FaWhatsapp className="w-4 h-4" />
-            <span className="absolute bottom-full mb-2 px-3 py-1 bg-green-500 text-white text-sm font-medium rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap">
+            <span className="absolute bottom-full mb-2 px-3 py-1 bg-green-500 text-white text-sm font-medium rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap z-50">
               WhatsApp
             </span>
           </a>
@@ -96,7 +98,7 @@ export default function FloatingSocialMedia() {
             href="https://www.youtube.com/@Acharayavikashkumar" 
             target="_blank"
             rel="noopener noreferrer"
-            className={`group relative w-10 h-10 rounded-full bg-red-600 hover:bg-red-700 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl ${
+            className={`group relative w-10 h-10 flex-shrink-0 rounded-full bg-red-600 hover:bg-red-700 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl ${
               isExpanded ? 'scale-100 translate-x-0' : 'scale-0 translate-x-4'
             }`}
             style={{ transitionDelay: '150ms' }}
@@ -104,7 +106,7 @@ export default function FloatingSocialMedia() {
             onClick={handleInteraction}
           >
             <FaYoutube className="w-4 h-4" />
-            <span className="absolute bottom-full mb-2 px-3 py-1 bg-red-600 text-white text-sm font-medium rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap">
+            <span className="absolute bottom-full mb-2 px-3 py-1 bg-red-600 text-white text-sm font-medium rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap z-50">
               YouTube
             </span>
           </a>
@@ -113,7 +115,7 @@ export default function FloatingSocialMedia() {
             href="https://www.instagram.com/acharaya.vikash_27/" 
             target="_blank"
             rel="noopener noreferrer"
-            className={`group relative w-10 h-10 rounded-full bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 hover:from-purple-700 hover:via-pink-700 hover:to-orange-600 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl ${
+            className={`group relative w-10 h-10 flex-shrink-0 rounded-full bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 hover:from-purple-700 hover:via-pink-700 hover:to-orange-600 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl ${
               isExpanded ? 'scale-100 translate-x-0' : 'scale-0 translate-x-4'
             }`}
             style={{ transitionDelay: '200ms' }}
@@ -121,7 +123,7 @@ export default function FloatingSocialMedia() {
             onClick={handleInteraction}
           >
             <FaInstagram className="w-4 h-4" />
-            <span className="absolute bottom-full mb-2 px-3 py-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-medium rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap">
+            <span className="absolute bottom-full mb-2 px-3 py-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-medium rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap z-50">
               Instagram
             </span>
           </a>
@@ -130,7 +132,7 @@ export default function FloatingSocialMedia() {
             href="https://www.facebook.com/profile.php?id=61581478106818" 
             target="_blank"
             rel="noopener noreferrer"
-            className={`group relative w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl ${
+            className={`group relative w-10 h-10 flex-shrink-0 rounded-full bg-blue-600 hover:bg-blue-700 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl ${
               isExpanded ? 'scale-100 translate-x-0' : 'scale-0 translate-x-4'
             }`}
             style={{ transitionDelay: '250ms' }}
@@ -138,7 +140,7 @@ export default function FloatingSocialMedia() {
             onClick={handleInteraction}
           >
             <FaFacebookF className="w-4 h-4" />
-            <span className="absolute bottom-full mb-2 px-3 py-1 bg-blue-600 text-white text-sm font-medium rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap">
+            <span className="absolute bottom-full mb-2 px-3 py-1 bg-blue-600 text-white text-sm font-medium rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap z-50">
               Facebook
             </span>
           </a>
