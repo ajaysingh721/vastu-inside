@@ -58,7 +58,7 @@ export default function FloatingSocialMedia() {
   };
 
   return (
-    <div className="fixed bottom-8 right-8 z-40" ref={containerRef}>
+    <div className="fixed bottom-8 right-8 z-40 hidden sm:block" ref={containerRef}>
       <div 
         className={`flex flex-row-reverse items-center bg-white/90 backdrop-blur-sm rounded-full shadow-2xl border-2 border-primary-500 transition-all duration-500 ease-in-out ${
           isExpanded ? "gap-2 p-2" : "gap-0 p-1"
