@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaCalendarAlt, FaTools, FaArrowRight } from "react-icons/fa";
+import { FaCalendarAlt, FaTools, FaArrowRight, FaSearchPlus } from "react-icons/fa";
 import WaveDivider from "@/components/WaveDivider";
 import CountUp from "@/components/CountUp";
 import ScrollAnimation from "@/components/ScrollAnimations";
@@ -16,14 +16,18 @@ export default function Home() {
             <div className="flex flex-col items-center text-center space-y-6">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-400 to-secondary-400 rounded-full blur-2xl opacity-20 animate-pulse"></div>
-                <div className="relative w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full overflow-hidden border-4 border-white shadow-2xl hover:scale-105 transition-transform duration-300">
+                <div className="relative w-52 h-52 md:w-72 md:h-72 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-white shadow-2xl group transition-transform duration-300">
                   <Image
                     src="/images/acharya-vikash-kumar.jpg"
                     alt="Acharya Vikash Kumar - Vastu Expert"
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-500 group-hover:scale-130 group-hover:shadow-2xl"
                     priority
                   />
+                  <span className="hidden md:block absolute inset-0 rounded-full border-4 border-primary-400 pointer-events-none group-hover:border-8 transition-all duration-300"></span>
+                  <span className="hidden md:flex items-center justify-center absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <FaSearchPlus className="text-white text-3xl drop-shadow-lg" />
+                  </span>
                 </div>
               </div>
               <div className="space-y-2">
