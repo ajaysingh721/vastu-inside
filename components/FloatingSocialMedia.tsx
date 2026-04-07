@@ -114,7 +114,7 @@ export default function FloatingSocialMedia() {
           </a>
           
           <a 
-            href="https://www.instagram.com/acharaya.vikash_27/" 
+            href="https://www.instagram.com/acharya.vikash_27/" 
             target="_blank"
             rel="noopener noreferrer"
             className={`group relative w-10 h-10 flex-shrink-0 rounded-full bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 hover:from-purple-700 hover:via-pink-700 hover:to-orange-600 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl ${

@@ -30,6 +30,26 @@ export default function Home() {
                 <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mt-4">
                   Expert Vastu Consultant | Transforming Spaces, Enriching Lives
                 </p>
+                <div className="flex flex-col items-center gap-3 mt-6 pt-4 border-t border-gray-300">
+                  <div className="flex flex-col sm:flex-row gap-6 text-center justify-center">
+                    <div>
+                      <p className="text-sm text-gray-500 mb-1">Phone</p>
+                      <a href="tel:+917858992627" className="text-lg font-semibold text-primary-600 hover:text-primary-700 transition-colors">
+                        +91 7858992627
+                      </a>
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-500 mb-1">Email</p>
+                      <a href="mailto:support@vastuinside.com" className="text-lg font-semibold text-primary-600 hover:text-primary-700 transition-colors">
+                        support@vastuinside.com
+                      </a>
+                    </div>
+                  </div>
+                  <Link href="/contact" className="btn-primary mt-2 inline-flex items-center gap-2">
+                    <FaCalendarAlt className="w-4 h-4" />
+                    Book Consultation
+                  </Link>
+                </div>
               </div>
             </div>
           </ScrollAnimation>

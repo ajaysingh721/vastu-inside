@@ -450,7 +450,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h4 className="font-semibold mb-1">Phone</h4>
-                      <p className="text-gray-600 text-sm">+91 9599668544</p>
+                      <p className="text-gray-600 text-sm">+91 7858992627</p>
                     </div>
                   </div>
 
@@ -667,7 +667,7 @@ const contactMethods = [
     icon: "📱",
     title: "WhatsApp",
     description: "Quick responses and easy file sharing",
-    link: "https://wa.me/919876543210",
+    link: "https://wa.me/917858992627",
     action: "Chat Now"
   },
   {
