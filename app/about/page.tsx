@@ -123,7 +123,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section className="section-padding">
+      {/* <section className="section-padding">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="heading-lg mb-4">Meet Our Expert Team</h2>
@@ -153,7 +153,7 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Statistics Section */}
       <section className="section-padding bg-gradient-to-r from-primary-500 to-secondary-500 text-white">

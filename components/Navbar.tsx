@@ -2,13 +2,51 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { FaFacebookF, FaInstagram, FaYoutube, FaWhatsapp, FaLinkedin, FaPhone } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaYoutube, FaWhatsapp, FaLinkedin, FaPhone, FaEnvelope } from "react-icons/fa";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-white shadow-md">
+    <>
+      {/* Top Contact Bar */}
+      <div className="bg-gradient-to-r from-primary-600 to-secondary-500 text-white py-3 shadow-md">
+        <div className="container-custom">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-3 md:gap-6">
+            {/* Contact Info */}
+            <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+              {/* Call Button */}
+              <a 
+                href="tel:+917858992627"
+                className="flex items-center gap-2 hover:opacity-90 transition-opacity duration-300 group"
+              >
+                <FaPhone className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                <span className="font-medium">+91 7858992627</span>
+              </a>
+              
+              {/* Email Link */}
+              <a 
+                href="mailto:support@vastuinside.com"
+                className="flex items-center gap-2 hover:opacity-90 transition-opacity duration-300 group"
+              >
+                <FaEnvelope className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                <span className="font-medium">support@vastuinside.com</span>
+              </a>
+            </div>
+
+            {/* Book Consultation Button */}
+            <button 
+              onClick={() => window.open('/contact', '_self')}
+              className="bg-white text-primary-600 px-6 py-2 rounded-full font-semibold hover:bg-gray-100 hover:scale-105 transition-all duration-300 shadow-lg"
+            >
+              Book Consultation
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Navbar */}
+      <nav className="sticky top-0 z-50 bg-white shadow-md">
       <div className="container-custom">
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
@@ -178,5 +216,6 @@ export default function Navbar() {
         )}
       </div>
     </nav>
+    </>
   );
 }

@@ -250,11 +250,11 @@ export default function ContactPage() {
       <WaveDivider color="white" />
 
       {/* Contact Form and Info Section */}
-      <section className="section-padding bg-white">
+      {/* <section className="section-padding bg-white">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-5 gap-12">
+          <div className="grid lg:grid-cols-5 gap-12"> */}
             {/* Contact Form */}
-            <div className="lg:col-span-3">
+            {/* <div className="lg:col-span-3">
               <div className="card glass hover-lift animate-fade-in">
                 <h2 className="heading-md mb-6"><span className="text-gradient">Send Us a Message</span></h2>
                 
@@ -323,7 +323,7 @@ export default function ContactPage() {
                         className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors ${
                           errors.phone ? 'border-red-500' : 'border-gray-300'
                         }`}
-                        placeholder="+91 9599668544"
+                        placeholder="+91 7858992627"
                       />
                       {errors.phone && (
                         <p className="mt-1 text-sm text-red-600">{errors.phone}</p>
@@ -411,10 +411,10 @@ export default function ContactPage() {
                   </button>
                 </form>
               </div>
-            </div>
+            </div> */}
 
             {/* Contact Information */}
-            <div className="lg:col-span-2 space-y-6 animate-fade-in-delay">
+            {/* <div className="lg:col-span-2 space-y-6 animate-fade-in-delay">
               <div className="card glass hover-lift">
                 <h3 className="text-xl font-bold mb-4 text-gradient">Contact Information</h3>
                 <div className="space-y-4">
@@ -495,7 +495,7 @@ export default function ContactPage() {
                   Not sure where to start? Book a complimentary 15-minute consultation 
                   to discuss your needs and get personalized recommendations.
                 </p>
-                <a href="tel:+919599668544" className="btn-primary w-full text-center block">
+                <a href="tel:+917858992627" className="btn-primary w-full text-center block">
                   Call Now
                 </a>
               </div>
@@ -532,10 +532,10 @@ export default function ContactPage() {
                   </a>
                 </div>
               </div>
-            </div>
-          </div>
+            </div> */}
+          {/* </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Map Section */}
       <section className="section-padding bg-gray-50">
