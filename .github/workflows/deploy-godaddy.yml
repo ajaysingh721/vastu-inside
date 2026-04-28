@@ -29,6 +29,11 @@ jobs:
       - name: Build static site (Next export)
         run: npm run build
 
+      - name: Set file and folder permissions
+        run: |
+          find ./out -type f -exec chmod 0644 {} \;
+          find ./out -type d -exec chmod 0755 {} \;
+
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -39,3 +44,14 @@ jobs:
           local-dir: ./out/
           server-dir: ${{ secrets.GODADDY_FTP_REMOTE_DIR }}
           dangerous-clean-slate: true
+
+      - name: Set permissions on server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.GODADDY_FTP_SERVER }}
+          username: ${{ secrets.GODADDY_FTP_USERNAME }}
+          password: ${{ secrets.GODADDY_FTP_PASSWORD }}
+          port: 22
+          script: |
+            find ${{ secrets.GODADDY_FTP_REMOTE_DIR }} -type f -exec chmod 0644 {} \;
+            find ${{ secrets.GODADDY_FTP_REMOTE_DIR }} -type d -exec chmod 0755 {} \;
