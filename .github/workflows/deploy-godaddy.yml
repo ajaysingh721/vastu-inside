@@ -29,11 +29,6 @@ jobs:
       - name: Build static site (Next export)
         run: npm run build
 
-      - name: Set file and folder permissions
-        run: |
-          find ./out -type f -exec chmod 0644 {} \;
-          find ./out -type d -exec chmod 0755 {} \;
-
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
