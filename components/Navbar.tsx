@@ -51,13 +51,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 group">
-            <div className="relative logo-glow">
-              <span className="text-3xl md:text-4xl animate-pulse">🕉️</span>
-              <div className="absolute inset-0 text-3xl md:text-4xl text-primary-400 animate-ping opacity-20">🕉️</div>
-            </div>
-            <span className="text-2xl md:text-3xl font-bold font-serif bg-gradient-to-r from-primary-600 via-secondary-500 to-primary-600 bg-clip-text text-transparent animate-gradient-x">
-              VastuInside
-            </span>
+            <img src="/images/logo.png" alt="VastuInside Logo" className="h-20 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
