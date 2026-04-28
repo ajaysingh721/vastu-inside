@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { FormEvent } from "react";
 import { FaPaperPlane } from "react-icons/fa";
 import WaveDivider from "@/components/WaveDivider";
+import { GoogleMap, LoadScript, Marker, InfoWindow } from "@react-google-maps/api";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -17,6 +18,37 @@ export default function ContactPage() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState("");
+  const [selectedMarker, setSelectedMarker] = useState<string | null>(null);
+
+  const mapContainerStyle = {
+    width: "100%",
+    height: "400px",
+    borderRadius: "24px"
+  };
+
+  const mapCenter = {
+    lat: 26.5755,
+    lng: 81.2533
+  };
+
+  const locations = [
+    {
+      id: "main",
+      name: "Main Office - Vrindavan",
+      address: "V-21, Chatikara Road, Vrindavan, Uttar Pradesh - 281504",
+      lat: 27.5755,
+      lng: 77.2533,
+      phone: "+91 7858992627"
+    },
+    {
+      id: "branch",
+      name: "Branch Office - Patna",
+      address: "Hanuman Nagar, Kankarbagh, Patna - 800020",
+      lat: 25.5951,
+      lng: 85.1872,
+      phone: "+91 7858992627"
+    }
+  ];
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
@@ -103,7 +135,30 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <WaveDivider color="white" />
+
+       {/* Alternative Contact Methods Section */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="heading-lg mb-4">Other Ways to <span className="text-gradient">Connect</span></h2>
+            <p className="text-body max-w-2xl mx-auto">
+              Choose your preferred method of communication
+            </p>
+          </div>
+          <div className="grid md:grid-cols-4 gap-6">
+            {contactMethods.map((method, index) => (
+              <div key={index} className="card glass card-hover-3d text-center">
+                <div className="text-5xl mb-4 float">{method.icon}</div>
+                <h3 className="font-bold text-lg mb-2 text-gradient">{method.title}</h3>
+                <p className="text-sm text-gray-600 mb-3">{method.description}</p>
+                <a href={method.link} className="text-primary-500 hover:text-primary-600 font-semibold text-sm">
+                  {method.action} →
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Consultation Hours Section */}
       <section className="section-padding bg-white">
@@ -220,34 +275,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
-      <WaveDivider color="gray" flip />
-
-      {/* Alternative Contact Methods Section */}
-      <section className="section-padding bg-gray-50">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="heading-lg mb-4">Other Ways to <span className="text-gradient">Connect</span></h2>
-            <p className="text-body max-w-2xl mx-auto">
-              Choose your preferred method of communication
-            </p>
-          </div>
-          <div className="grid md:grid-cols-4 gap-6">
-            {contactMethods.map((method, index) => (
-              <div key={index} className="card glass card-hover-3d text-center">
-                <div className="text-5xl mb-4 float">{method.icon}</div>
-                <h3 className="font-bold text-lg mb-2 text-gradient">{method.title}</h3>
-                <p className="text-sm text-gray-600 mb-3">{method.description}</p>
-                <a href={method.link} className="text-primary-500 hover:text-primary-600 font-semibold text-sm">
-                  {method.action} →
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <WaveDivider color="white" />
 
       {/* Contact Form and Info Section */}
       {/* <section className="section-padding bg-white">
@@ -540,12 +567,86 @@ export default function ContactPage() {
       {/* Map Section */}
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
-          <div className="bg-gray-200 rounded-3xl overflow-hidden h-96 flex items-center justify-center">
-            <div className="text-center">
-              <div className="text-6xl mb-4">🗺️</div>
-              <p className="text-gray-600 text-lg">Map location placeholder</p>
-              <p className="text-sm text-gray-500">Interactive map would be integrated here</p>
-            </div>
+          <div className="mb-8 text-center">
+            <h2 className="heading-lg mb-4">Visit Our <span className="text-gradient">Offices</span></h2>
+            <p className="text-body max-w-2xl mx-auto">
+              Located in Vrindavan and Patna to serve you better
+            </p>
+          </div>
+          
+          <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ""}>
+            <GoogleMap
+              mapContainerStyle={mapContainerStyle}
+              center={mapCenter}
+              zoom={5}
+              options={{
+                styles: [
+                  {
+                    featureType: "all",
+                    elementType: "geometry",
+                    stylers: [{ color: "#f5f5f5" }]
+                  },
+                  {
+                    featureType: "water",
+                    elementType: "geometry",
+                    stylers: [{ color: "#e0f2f1" }]
+                  },
+                  {
+                    featureType: "road",
+                    elementType: "geometry",
+                    stylers: [{ color: "#ffffff" }]
+                  }
+                ]
+              }}
+            >
+              {locations.map((location) => (
+                <Marker
+                  key={location.id}
+                  position={{ lat: location.lat, lng: location.lng }}
+                  onClick={() => setSelectedMarker(location.id)}
+                  icon={{
+                    path: "M12 0C7.58 0 4 3.58 4 8c0 5.25 8 16 8 16s8-10.75 8-16c0-4.42-3.58-8-8-8zm0 11c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z",
+                    fillColor: "#e88a00",
+                    fillOpacity: 1,
+                    strokeColor: "#fff",
+                    strokeWeight: 2,
+                    scale: 2
+                  }}
+                >
+                  {selectedMarker === location.id && (
+                    <InfoWindow onCloseClick={() => setSelectedMarker(null)}>
+                      <div className="p-4 bg-white rounded-lg shadow-lg max-w-xs">
+                        <h3 className="font-bold text-lg text-gray-800 mb-2">{location.name}</h3>
+                        <p className="text-sm text-gray-600 mb-2">{location.address}</p>
+                        <a href={`tel:${location.phone}`} className="text-primary-600 font-semibold text-sm hover:underline">
+                          {location.phone}
+                        </a>
+                      </div>
+                    </InfoWindow>
+                  )}
+                </Marker>
+              ))}
+            </GoogleMap>
+          </LoadScript>
+
+          <div className="grid md:grid-cols-2 gap-6 mt-8">
+            {locations.map((location) => (
+              <div key={location.id} className="card glass hover-lift">
+                <h3 className="font-bold text-xl mb-3 text-gradient">{location.name}</h3>
+                <div className="space-y-3 text-sm text-gray-700">
+                  <p className="flex items-start gap-2">
+                    <span className="text-primary-500 font-bold mt-0.5">📍</span>
+                    {location.address}
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <span className="text-primary-500 font-bold">📞</span>
+                    <a href={`tel:${location.phone}`} className="text-primary-600 hover:underline font-semibold">
+                      {location.phone}
+                    </a>
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
