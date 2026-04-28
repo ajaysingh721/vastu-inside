@@ -8,10 +8,7 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <span className="text-3xl">🕉️</span>
-              <span className="text-2xl font-bold font-serif bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent">
-                Vastu Inside
-              </span>
+              <img src="/images/logo.png" alt="VastuInside Logo" className="h-16 w-auto" />
             </div>
             <p className="text-sm mb-4">
               Transforming spaces with ancient Vastu wisdom and modern understanding 
